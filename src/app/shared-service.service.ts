@@ -16,7 +16,7 @@ export class SharedService {
     return _window()
   }
 
-  APIUrl = "http://127.0.0.1:8000/v1"
+  APIUrl = "https://smxapp-server.herokuapp.com/v1"
   product = '/product'
 
   constructor(private http: HttpClient) { }
