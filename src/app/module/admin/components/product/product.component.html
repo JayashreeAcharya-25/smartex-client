@@ -1,0 +1,240 @@
+<div class="admin-component">
+  <div class="admin-container">
+    <h2>Products</h2>
+    <div class="container">
+      <div class="admin-header">
+        <h3>List Of Products</h3>
+        <a href="#modal-center" uk-icon="icon: plus" uk-toggle (click)="onClickAddBtn()"></a>
+      </div>
+      <div class="admin-body">
+        <table class="uk-table uk-table-small uk-table-divider">
+          <thead>
+            <tr>
+              <th>Sl.No</th>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Brand</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Image</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let res of products">
+              <td>{{res.pro_slno}}</td>
+              <td>{{res.pro_code}}</td>
+              <td>{{res.pro_name}}</td>
+              <td>{{res.pro_desc}}</td>
+              <td>{{res.pro_brand}}</td>
+              <td>{{res.pro_category}}</td>
+              <td>{{res.pro_price}}</td>
+              <td><img [src]="res.pro_image"></td>
+              <td>
+                <button type="submit" uk-icon="icon: trash" (click)="deleteProducts(res.id)"></button> &nbsp; &nbsp;
+                <button type="button" uk-icon="icon: pencil" uk-toggle="target: #modal-center" (click)="editProduct(res)"></button>
+              </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="modal-center" #ukmodal class="uk-flex-top modal" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <div class="uk-modal-header">
+          <h3 class="uk-modal-title">{{show_add_btn ? "Add Product" : "Update Product"}}</h3>
+          <button #ukclose class="uk-modal-close-default" type="button" uk-close></button>
+        </div>
+        <div class="uk-modal-body">
+          <form [formGroup]="formValue">
+            <div class="uk-margin modal-grid-2">
+              <div>
+                <label class="uk-form-label">Sl. No</label>
+                <div class="uk-form-controls">
+                  <input
+                    class="uk-input"
+                    formControlName="pro_slno"
+                    
+                    type="text"
+                    placeholder="Enter Sl. No"
+                  />
+                </div>
+              </div>
+              <div>
+                <label class="uk-form-label">Code</label>
+                <div class="uk-form-controls">
+                  <input
+                    class="uk-input"
+                    formControlName="pro_code"
+                    
+                    type="text"
+                    placeholder="Enter Product Code"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="uk-margin"></div>
+            <div class="uk-margin modal-grid-2">
+              <div>
+                <label class="uk-form-label" >Name</label>
+                <div class="uk-form-controls">
+                  <input
+                    class="uk-input"
+                    formControlName="pro_name"
+                   
+                    type="text"
+                    placeholder="Enter Product Name"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <div>
+                  <label class="uk-form-label">Upload Image</label>
+                  <div class="uk-form-controls">
+                    <!-- <input class="uk-input" type="text"  formControlName="pro_image" (click)="triggerFile()"> -->
+                    <input
+                      class="uk-input"
+                      #fileInput
+                      type="file"
+                      placeholder="Upload Image"
+                      accept="*png,jpg"
+                      (change)="uploadFile($event)"
+                      
+                    />
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+
+
+            <div class="uk-margin">
+              <label class="uk-form-label" >Description</label>
+              <div class="uk-form-controls">
+                <input
+                  class="uk-input"
+                  formControlName="pro_desc"
+                 
+                  type="text"
+                  placeholder="Enter Product Description"
+                />
+              </div>
+            </div>
+
+            <div class="uk-margin modal-grid-2">
+              <div>
+                <label class="uk-form-label">Brand</label>
+                <div class="uk-form-controls">
+                    <select class="uk-select" formControlName="pro_brand">
+                        <option>Select Brands</option>
+                        
+                        <option *ngFor="let brand of brands" value={{brand.id}}>{{brand.brand_name}}</option>
+                        
+                    </select>
+                </div>
+              </div>
+              <div>
+                <label class="uk-form-label" for="form-horizontal-text">Category</label>
+                <div class="uk-form-controls">
+                    <select class="uk-select" id="form-horizontal-select" formControlName="pro_category" >
+                        <option>Select Category</option>
+                        <option *ngFor="let category of categories" value={{category.id}}>{{category.cat_name}}</option>
+                    </select>
+                </div>
+              </div>
+            </div>
+            
+            <!-- <div class="uk-margin">
+              <label class="uk-form-label" for="form-horizontal-text">Color</label>
+              <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                    <label><input class="uk-checkbox" type="checkbox" formControlName="pro_color" value="black"> Black</label>
+                    <label><input class="uk-checkbox" type="checkbox" formControlName="pro_color" value="green"> Green</label>
+                    <label><input class="uk-checkbox" type="checkbox" formControlName="pro_color" value="white"> White</label>
+                </div>
+            </div> -->
+            <div class="uk-margin modal-grid-3">
+              <div>
+                <label class="uk-form-label">SGST</label>
+                <div class="uk-form-controls">
+                    <input
+                    class="uk-input"
+                    formControlName="pro_sgst"
+                  
+                    type="text"
+                    placeholder="Enter SGST"
+                    />
+                </div>
+              </div>
+              <div>
+                <label class="uk-form-label">CGST</label>
+                <div class="uk-form-controls">
+                  <input
+                    class="uk-input"
+                    formControlName="pro_cgst"
+                 
+                    type="text"
+                    placeholder="Enter CGST"
+                  />
+                </div>
+              </div>
+              <div>
+                <label class="uk-form-label" >Price</label>
+                <div class="uk-form-controls">
+                  <input
+                    class="uk-input"
+                    formControlName="pro_price"
+                  
+                    type="text"
+                    placeholder="Enter Price"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="uk-margin modal-grid-3">
+              <div>
+                <label class="uk-form-label">User Id</label>
+                <div class="uk-form-controls">
+                  <input
+                    class="uk-input"
+                    formControlName="uid"
+                   
+                    type="text"
+                    placeholder="Enter User Id"
+                  />
+                </div>
+              </div>
+              <div>
+                <label class="uk-form-label">Quantity</label>
+                <div class="uk-form-controls">
+                  <input
+                    class="uk-input"
+                    formControlName="pro_qty"
+                  
+                    type="text"
+                    placeholder="Enter Quantity"
+                  />
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="uk-modal-footer uk-text-right">
+              
+              <button *ngIf="show_add_btn" class="uk-button uk-button-primary" type="submit" (click)="addProducts()">
+                Create
+              </button>
+              <button *ngIf="show_update_btn" class="uk-button uk-button-primary" type="submit" (click)="updateProducts(formValue.value)">
+                Update
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

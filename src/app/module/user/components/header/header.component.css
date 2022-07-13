@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+
+header .uk-navbar-container{
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+header  .uk-navbar-right {
+    margin-left: 80px;
+    
+}
+
+header  .uk-navbar-right .uk-logo{
+    display: inline-block;
+}
+
+header .uk-navbar-item, li a{
+    min-height: 20px;
+}
+
+header .uk-navbar-left{
+    margin-right: 80px;
+}
+
+header .uk-navbar-left .uk-navbar-nav li a{
+    padding: 1rem 2rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    border-bottom: 2px solid #f8f8f8;
+    transition: 0.3s ease-in-out;
+}
+header .uk-navbar-left .uk-navbar-nav li a:hover{
+    border-bottom: 2px solid #7a0459;
+}
+header .uk-navbar-left .uk-navbar-nav li a:active{
+    border-bottom: 2px solid #7a0459;
+}
+
+header .uk-logo{
+    height: auto;
+    font-family: 'Berkshire Swash', cursive;
+    padding-left: 50px;
+    color: #202020;
+    font-size: 25px;
+    text-transform: lowercase;
+}
+header .uk-logo span{
+    color: #7a0459;
+    text-transform: capitalize;
+}

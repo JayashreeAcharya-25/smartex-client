@@ -1,0 +1,73 @@
+<div class="admin-component">
+    <div class="admin-container">
+        <h2>Category</h2>
+        <div class="container">
+            <div class="admin-header">
+                <h3>List Of Category</h3>
+                <a href="#modal-center" uk-icon="icon: plus" uk-toggle></a>
+            </div>
+            <div class="admin-body">
+                <table class="uk-table uk-table-small uk-table-divider">
+                    <thead>
+                        <tr>
+                            <th>Sl.No</th>
+                            <th>Category Name</th>
+                            <th>Brand</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let res of categories">
+                            <td>{{res.cat_slno}}</td>
+                            <td>{{res.cat_name}}</td>
+                            <td>{{res.cat_brand}}</td>
+                        </tr>
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="modal-center" class="uk-flex-top modal" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+    
+                <button #ukclose class="uk-modal-close-default" type="button" uk-close></button>
+    
+                <div class="uk-modal-header">
+                    <h3 class="uk-modal-title">Add Category</h3>
+                </div>
+                <div class="uk-modal-body">
+                    <form [formGroup]="formValue" (ngSubmit)="addCategories()">
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-horizontal-text">Sl. No</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input" formControlName="cat_slno" id="form-horizontal-text" type="text" placeholder="Enter Sl. No">
+                            </div>
+                        </div>
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-horizontal-text">Category Name</label>
+                            <div class="uk-form-controls">
+                                <input class="uk-input" formControlName="cat_name" id="form-horizontal-text" type="text" placeholder="Enter Category Name">
+                            </div>
+                        </div>
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-horizontal-text">Select Brand</label>
+                            <div class="uk-form-controls">
+                                <select class="uk-select" id="form-horizontal-select" formControlName="cat_brand" >
+                                    <option>Select Brands</option>
+                                    <option *ngFor="let brand of brands" value={{brand.id}}>{{brand.brand_name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="uk-modal-footer uk-text-right">
+                            <button class="uk-button uk-button-default" type="button">Reset</button>
+                            <button class="uk-button uk-button-primary" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                
+    
+            </div>
+        </div>
+    </div>
+
+    
+</div>

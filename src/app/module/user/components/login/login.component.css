@@ -1,0 +1,77 @@
+@import url("https://cdn.jsdelivr.net/npm/uikit@3.14.1/dist/css/uikit.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Joan&display=swap');
+
+/* :root{
+    --black: #000;
+} */
+
+.text-align{
+    text-align: center;
+}
+
+.align-center{
+    display: block;
+    margin: auto;
+}
+
+.glass-effect{
+    background: rgba(255, 255, 255, 0.071);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(2px);
+    
+}
+
+/* Form */
+
+.form-title{
+    color: #fff;
+    font-family: 'Cormorant Garamond',
+    serif;
+    text-transform: uppercase;
+    font-size: 35px;
+    padding: 15px 0;
+}
+.section-form{
+    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), 
+                url('../../../../../assets/content-banner.jpg') no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.section-form form{
+    display: block;
+    left: 50%;
+    margin: auto;
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+}
+
+.section-form form .uk-inline{
+    width: 80%;
+}
+.section-form form .uk-input{
+    background: transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #ffdb39;
+}
+.section-form form .uk-input::placeholder{
+    color: #b9b9b9;
+    font-size: 13px;
+}
+
+.section-form form .uk-button{
+    color: #0b0b0b;
+    background: #ffdb39;
+    border-radius: 4px;
+    text-transform: capitalize;
+    font-family: 'Joan', serif;
+    font-size: 16px;
+}

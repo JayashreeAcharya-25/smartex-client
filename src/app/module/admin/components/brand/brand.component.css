@@ -1,0 +1,149 @@
+
+.admin-container .container {
+    border-radius: 6px;
+    box-shadow: 2px 3px 8px 1px #b6b6b6;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.071);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.admin-container h2 {
+    font-family: 'Joan', serif;
+    font-size: 35px;
+    color: #232323;
+    margin-bottom: 40px;
+}
+
+.admin-container .admin-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+.admin-container .admin-header h3 {
+    font-family: 'Joan', serif;
+    color: #232323;
+    font-size: 17px;
+    word-spacing: 6px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.admin-container .admin-header a {
+    border-radius: 50%;
+    color: #ebebeb;
+    background: #7a0459;
+    border: 1px solid #7a0459;
+    text-decoration: none;
+    padding: 8px;
+    text-align: center;
+    float: right;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.admin-container .admin-header a:hover{
+    background: #94056c;
+}
+
+.admin-container .admin-body table thead tr{
+    border-bottom: 1px solid #8c8c8c;
+    border-top: 1px solid #8c8c8c;
+    
+}
+.admin-container .admin-body table th{
+    font-family: 'Cormorant Garamond',
+    serif;
+    text-transform: capitalize;
+    font-size: 16px;
+    color: #232323;
+    padding: 18px 12px;
+}
+.admin-container .admin-body table tbody tr{
+    border-top: none;
+}
+.admin-container .admin-body table td{
+    font-family: 'Joan', serif;
+    font-size: 14px;
+    color: #232323;
+    
+}
+
+.modal .uk-modal-dialog .uk-modal-body{
+    padding-bottom: 0;
+}
+
+.modal .uk-modal-title{
+    font-family: 'Cormorant Garamond',
+    serif;
+    font-size: 28px;
+    margin-bottom: 0;
+}
+
+.modal .uk-form-label{
+    font-family: 'Joan', serif;
+    margin-bottom: 10px;
+}
+
+.modal .uk-form-controls{
+    margin-top: 10px;
+}
+
+.modal .uk-select,
+.modal .uk-input{
+    font-family: 'Joan', serif;
+    font-size: 13px;
+    height: 33px;
+}
+
+.modal .uk-modal-footer .uk-button{
+    margin: 0 5px;
+    background: #7a0459;
+    border-radius: 4px;
+    color: #ebebeb;
+    text-transform: capitalize;
+    transition: .4s ease-in-out;
+}
+
+.modal .uk-modal-footer .uk-button:hover{
+    background: #94056c;
+}
+
+.modal-grid-2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.modal-grid-3{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.swal2-title{
+    font-size: 20px;
+    font-family: 'Joan', serif;
+    font-weight: 500;
+}
+
+.swal2-actions .swal2-styled.swal2-confirm{
+    background: #7a0459;
+    color: #ebebeb;
+}
+
+.modal .uk-modal-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal .uk-modal-header .uk-modal-close-default{
+    position: initial;
+}
+
+
+

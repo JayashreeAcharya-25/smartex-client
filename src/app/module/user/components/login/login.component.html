@@ -1,0 +1,39 @@
+<div class="section-form">
+    <form class="glass-effect" [formGroup]="formValue" (ngSubmit)="login()">
+      <h1 class="form-title text-align">Login</h1>
+  
+      <div class="uk-margin">
+        <div class="uk-inline align-center">
+          <span class="uk-form-icon" uk-icon="icon: mail"></span>
+          <input
+            class="uk-input"
+            type="text"
+            formControlName="email"
+            name="email"
+            placeholder="Email Id"
+            required
+          />
+        </div>
+      </div>
+  
+      <div class="uk-margin">
+        <div class="uk-inline align-center">
+          <span class="uk-form-icon" uk-icon="icon: lock"></span>
+          <input
+            class="uk-input"
+            type="password"
+            formControlName="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+      </div>
+  
+      <br/>
+      <button class="uk-button align-center" type="submit">Login</button>
+      <br/>
+      <!-- <button class="btn btn-success pull-right" ><a routerLink="/home"> Add Customer</a></button> -->
+    </form>
+  </div>
+  

@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Joan&display=swap');
+
+.cart{
+    margin: 50px 100px;
+}
+
+.cart .cart-container{
+    display: flex;
+    column-gap: 30px;
+    justify-content: space-between;
+}
+
+.cart .default-container{
+   margin: auto;
+   display: block;
+   text-align: center;
+}
+
+.cart .default-container p{
+    font-size: 14px;
+    color: #979797;
+    font-family: 'Joan', serif;
+}
+
+.cart .default-container button{
+    padding: 8px 25px;
+    border: none;
+    font-size: 13px;
+    font-family: 'Joan', serif;
+    cursor: pointer;
+    border-radius: 4px;
+    background: #7a0459;
+    color: #ebebeb;
+    transition: .3s ease-in-out;
+}
+
+.cart .default-container button:hover{
+    background: #333;
+}
+
+.cart .table{
+    margin: 20px 50px;
+    height: 100vh;
+    width: 100%;
+}
+.cart .table .table_h2{
+    font-size: 40px;
+    font-family: 'Joan', serif;
+    text-align: center;
+}
+
+.cart .table thead th,
+.cart .table tbody td{
+    text-align: center;
+}
+
+.cart .table thead .items,
+.cart .table tbody .items{
+    text-align: left;
+}
+
+.cart .table tbody td span{
+    padding: 0 10px;
+}
+
+.cart .cart_title p{
+    color: #3f3f3f;
+    font-size: 34px;
+    text-transform: capitalize;
+    font-family: 'Joan', serif;
+    text-align: left !important;
+}
+
+.cart .table .row{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.cart .table .row .section a{
+    color: #333;
+    text-decoration: none;
+    font-family: 'Joan', serif;
+}
+.cart .table .row .section p{
+    margin-bottom: 0;
+    font-family: 'Joan', serif;
+}
+
+.cart .cart-container .summary{
+    padding: 30px 35px;
+    background: #f5f5f5;
+    height: 400px;
+    width: 17%;
+    border-radius: 4px;
+}
+
+.cart .summary h3{
+    font-size: 26px;
+    font-family: 'Joan', serif;
+    margin-bottom: 50px;
+}
+
+.cart .summary .section{
+    margin-bottom: 60px;
+}
+
+.cart .summary .section .section-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.cart .summary .section h5{
+    font-family: 'Joan', serif;
+    color: #979797;
+    text-transform: uppercase;
+    font-size: 12px;
+    word-spacing: 4px;
+    margin: 0;
+}
+.cart .summary .section p{
+    font-family: 'Joan', serif;
+    color: #6d6d6d;
+    font-size: 13px;
+    margin: 0;
+}
+
+.cart .summary button{
+    margin: auto;
+    padding: 12px 20px;
+    width: 100%;
+    background: #333;
+    color: #f5f5f5;
+    border: 0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: .3s ease-in-out;
+}
+
+.cart .summary button:hover{
+    background: #222;
+}

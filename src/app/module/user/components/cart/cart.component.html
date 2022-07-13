@@ -1,0 +1,108 @@
+<div class="cart">
+    <div class="cart_title">
+        <p>Items In My Cart</p>
+    </div>
+    <div class="cart-container">  
+        <ng-container *ngIf="selectedProducts.length">
+            <div class="table">
+                <table class="uk-table uk-table-divider">
+                    <thead>
+                        <tr>
+                            <th class="items">Item</th>
+                            <th>Unit Price</th>
+                            <th>Quantity</th>
+                            <th>Final Price</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <ng-container *ngFor="let item of selectedProducts; let i = index">
+
+                            <tr [attr.id]="item.id">
+
+                                <td class="items">{{item.pro_name}}</td>
+                                <td>&#8377; {{item.pro_price}}</td>
+                                <td>
+                                    <a (click)="increment_qty(item)">
+                                        <svg width="11" height="11" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="9" y="1" width="1" height="17"></rect>
+                                            <rect x="1" y="9" width="17" height="1"></rect>
+                                        </svg>
+                                    </a>
+
+                                    <span>{{item.pro_qty}}</span>
+
+                                    <a (click)="decrement_qty(item)">
+                                        <svg width="11" height="11" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect height="1" width="18" y="9" x="1"></rect>
+                                        </svg>
+                                    </a>
+                                </td>
+                                <td>&#8377;
+                                    {{item.pro_qty * item.pro_price}}</td>
+                                <td>
+                                    <a (click)="remove(item)">
+                                        <svg width="14" height="14" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill="none" stroke="#3f3f3f" stroke-width="1.06" d="M16,16 L4,4">
+                                            </path>
+                                            <path fill="none" stroke="#3f3f3f" stroke-width="1.06" d="M16,4 L4,16">
+                                            </path>
+                                        </svg>
+                                    </a>
+                                </td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="section">
+                        <a href="/product"><span uk-icon="icon: arrow-left"></span> Continue Shopping</a>
+                    </div>
+                    <div class="section">
+                        <p>Total Amount: <span>&#8377; {{total}}</span></p>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container>
+            <div *ngIf="selectedProducts.length===0" class="default-container">
+                <p>No products in you cart</p>
+                <button>Shop Now</button>
+            </div>
+        </ng-container>
+        <div class="summary">
+            <h3>Summary</h3>
+
+            <div class="section">
+                <div class="section-container">
+                    <h5>Sub Total</h5>
+                    <p>&#8377; {{total}}</p>
+                </div>
+                <div class="section-container">
+                    <h5>SGST</h5>
+                    <p>{{sgst | percent}}</p>
+                </div>
+                <div class="section-container">
+                    <h5>CGST</h5>
+                    <p>{{cgst | percent}}</p>
+                </div>
+            </div>
+            <div class="section">
+                <div class="section-container">
+                    <h5>Total Price</h5>
+                    <p>&#8377; {{netPrice}}</p>
+                </div>
+            </div>
+            <div class="section">
+                <div class="section-container">
+                    <button (click)="pay" >Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

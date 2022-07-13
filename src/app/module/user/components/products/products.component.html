@@ -1,0 +1,90 @@
+<div class="product">
+    <div class="product-container">
+        <div class="row">
+            <ul class="uk-breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/product">Products</a></li>
+            </ul>
+            <form class="uk-search uk-search-default">
+                <span uk-search-icon></span>
+                <input class="uk-search-input" type="text" placeholder="Search here.." name="searchedKeyword" [(ngModel)]="searchedKeyword">
+            </form>
+            <div class="div-cart">
+                <a class="cart" [routerLink]="['/yourcart']" uk-icon="icon: bag" uk-tooltip="Cart"></a>
+                <span name="count" ngDefaultControl [(ngModel)]="count" class="uk-badge">{{count}}</span>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="container">
+                <div class="section">
+                    <div class="uk-margin">
+                        <div uk-form-custom="target: > * > span:first-child">
+                            <select>
+                                <option value="">Sort... &nbsp;</option>
+                                <option value="1">Option 01</option>
+                                <option value="2">Option 02</option>
+                                <option value="3">Option 03</option>
+                                <option value="4">Option 04</option>
+                            </select>
+                            <button class="uk-button uk-button-default" type="button" tabindex="-1">
+                                <span></span>
+                                <span uk-icon="icon: chevron-down"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="section">
+
+                    <div class="uk-margin">
+                        <div uk-form-custom="target: > * > span:first-child">
+                            <select [(ngModel)]="selectedBrand" (change)="filterByDropdown()" >
+                                <option *ngFor="let brand of brands" value={{brand.id}}>{{brand.brand_name}}</option>
+                            </select>
+                            <button class="uk-button uk-button-default" type="button" tabindex="-1">
+                                Filter By Brands ... &nbsp;
+                                <span uk-icon="icon: chevron-down"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <div uk-form-custom="target: > * > span:first-child">
+                            <select [(ngModel)]="selectedCategory" (change)="filterByDropdown()">
+                                <option *ngFor="let category of categories" value={{category.id}}>{{category.cat_name}}
+                                </option>
+                            </select>
+                            <button class="uk-button uk-button-default" type="button" tabindex="-1">
+                                Filter By Category... &nbsp;
+                                <span uk-icon="icon: chevron-down"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="section">
+                    <ng-container *ngIf="filterproduct">
+                        <ng-container *ngFor="let product of filterproduct | filter:searchedKeyword">
+                            <div class=" uk-card uk-card-default card">
+                                <div class="uk-card-body">
+                                    <div class="uk-card-badge uk-label">{{product.id}}</div>
+                                    <h3 class="uk-card-title">{{product.pro_name}}</h3>
+                                    <p>{{product.pro_desc}}</p>
+                                    <img src="../../../../../assets/mockup-1.png" alt="">
+                                    <p class="price">&#8377; {{product.pro_price}}</p>
+                                </div>
+                                <div class="uk-card-footer">
+                                    <a class="shop-now" href="#">Shop Now</a>
+                                    <a class="cart" uk-icon="icon: bag" uk-tooltip="Add to Cart"
+                                        (click)="addToCart(product);"></a>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

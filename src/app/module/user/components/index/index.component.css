@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&display=swap');
+
+.slide {
+  width: 100%;
+  height: 100vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.one {
+  background: #ebebeb;
+}
+
+.two, .four {
+  background: #ebebeb;
+  height: 100vh;
+}
+
+.three{
+  background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
+      url('../../../../../assets/Bg1.jpg') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.five {
+  background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
+      url('../../../../../assets/Bg1.jpg') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.six {
+  background: #ebebeb;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.one .slide-one{
+  height: 100vh;
+}
+
+.one .uk-slideshow-items img{
+  background-size: cover;
+  object-fit: cover;
+}
+
+.one .uk-slideshow-items .uk-position-center-right {
+  bottom: 150px;
+  right: 80px;
+  height: 150px;
+  width: 350px;
+}
+
+.one .uk-slideshow-items .uk-position-center-right h3{
+  color: #333;
+  font-size: 30px;
+  font-family: 'Cormorant Garamond',
+    serif;
+}
+
+.one .uk-slideshow-items .uk-position-center-right p{
+  font-size: 16px;
+  font-family: 'Jost', sans-serif;
+}
+
+.two .slide-two {
+  height: 100vh;
+  display: flex;
+  background: linear-gradient(rgba(235,235,235,0.8),rgba(235,235,235,0.7)),
+      url('../../../../../assets/about-bg.png') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+} 
+
+.two .slide-two .section .container{
+  display: flex;
+  width: 70%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+}
+.two .slide-two .section .container .content{
+  margin: auto;
+}
+.two .slide-two .section .tag-line{
+  font-family: 'Cormorant Garamond',
+    serif;
+  color: #d6d6d6;
+  width: 100%;
+  line-height: 1;
+  
+}
+.two .slide-two .section .top{
+  font-size: 50px;
+  margin-top: -120px;
+  margin-left: -80px;
+}
+
+.two .slide-two .section .bottom{
+  font-size: 50px;
+  writing-mode: vertical-rl;
+  text-align: center;
+  position: relative;
+  color: #b6b6b6;
+  top: 70%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+}
+
+.two .slide-two .section .tag-line span{
+  color: #a50377;
+  opacity: 0.2;
+}
+.two .slide-two .section h3 {
+  color: #6d6d6d;
+  font-size: 40px;
+  font-family: 'Cormorant Garamond',
+    serif;
+    margin-bottom: 5px;
+}
+
+.two .slide-two .section h3 span{
+  color: #a50377;
+  font-size: 80px;
+}
+
+.two .slide-two .section:nth-child(1){
+  width: 70%;
+}
+.two .slide-two .section:nth-child(2){
+  width: 30%;
+  background: linear-gradient(rgba(235,235,235,0.9),rgba(235,235,235,0.9)),
+      url('../../../../../assets/about-section-1.jpeg');
+  background-size: cover;
+  height: 100vh;
+}
+
+.two .slide-two .section p {
+  font-size: 16px;
+  color: #999;
+  font-family: 'Jost', sans-serif;
+  width: 70%;
+} 
+
+.two .slide-two .section .img-grid{
+  margin-right: -300px;
+}
+
+.two .slide-two .section img {
+  height: 467px;
+  width: 311px;
+  background-size: cover;
+  margin: auto;
+  display: block;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.two .slide-two .section .image-overlay{
+  height: 467px !important;
+  width: 311px !important;
+  
+  border: 3px solid #cccccc;
+  margin-left: 80px;
+  margin-top: -510px;
+}
+.two .slide-two .section img:hover{
+  transform: scale(.95);
+}
+
+.three .slide-three,
+.four .slide-four,
+.five .slide-five {
+  height: 100vh;
+  display: block;
+}
+
+.three .slide-three .container{
+  width: 70%;
+  margin: auto 0;
+  display: flex;
+  column-gap: 100px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+}
+
+.three .slide-three .content:nth-child(1){
+  width: 30%;
+}
+
+.three .slide-three .content:nth-child(2){
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.three .slide-three .content h3{
+  text-align: left;
+  color: #ebebeb;
+  font-size: 60px;
+  font-family: 'Cormorant Garamond',
+    serif;
+  margin-bottom: 0;
+  line-height: 1;
+}
+.three .slide-three .content h3 span{
+  color: #a50377;
+  font-size: 70px;
+}
+.three .slide-three .content a{
+  font-family: 'Cinzel Decorative', cursive;
+  color: #a8a8a8;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 35px 40px;
+  border: 1px solid #a8a8a8;
+}
+
+.three .slide-three .content a:hover{
+  color: #a50377;
+}
+
+.four .slide-four {
+  
+  display: flex;
+  background: linear-gradient(rgba(235,235,235,0.8),rgba(235,235,235,0.7)),
+      url('../../../../../assets/Bg3.jpg') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+} 
+
+.four .slide-four .container{
+  width: 70%;
+  margin: auto 0;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+}
+
+.four .slide-four .section{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+
+.four .slide-four .container .text{
+  font-size: 50px;
+  font-family: 'Cormorant Garamond',
+    serif;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.four .slide-four .container .text span{
+  color: #a50377;
+}
+
+.four .slide-four .section .items{
+  width: 60%;
+  padding: 15px;
+  margin: 25px auto;
+  background: #f5f5f5;
+}
+
+.four .slide-four .section .content:nth-child(1) .items{
+  text-align: right;
+}
+
+.four .slide-four .section .content:nth-child(2){
+  margin: auto;
+}
+
+.four .slide-four .section .content video{
+  height: 550px;
+  width: 400px;
+  background-size: cover;
+  object-fit: cover;
+}
+
+.four .slide-four .section h3{
+  font-family: 'Cormorant Garamond',
+    serif;
+    
+}
+
+.four .slide-four .section p{
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  color: #9c9c9c
+}
+
+.five .slide-five .container{
+  width: 70%;
+  margin: auto 0;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.five .slide-five .content{
+  margin: 80px 0;
+}
+
+.five .slide-five .content h3 {
+  color: #ebebeb;
+  font-size: 40px;
+  font-family: 'Cormorant Garamond',
+    serif;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.five .slide-five .content h3 span{
+  color: #a50377;
+  font-size: 50px;
+}
+
+.five .slide-five .container img{
+  height: 200px;
+  width: 450px;
+  background-size: cover;
+  object-fit: cover;
+  margin: auto;
+}
+
+.five .slide-five .uk-card-body{
+  padding: 25px 20px;
+}
+.five .slide-five .uk-card-body h3{
+  font-family: 'Jost', sans-serif;
+  font-size: 20px;
+}
+
+.five .slide-five .uk-card-body p{
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  color: #999;
+}
+
+.six .slide-six{
+  height: 100vh;
+  margin: auto;
+  display: block;
+  background: linear-gradient(rgba(235,235,235, 0.93), rgba(235,235,235, 0.93)),
+  url('../../../../../assets/contact-us-1.png') no-repeat;
+  background-size: contain;
+  background-position: top center;
+  background-attachment: fixed;
+}
+.six .slide-six .container{
+  width: 70%;
+  margin: auto 0;
+  display: block;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+.six .slide-six .content{
+  padding: 120px 0;
+}
+
+.six .slide-six .content h3 {
+  color: #5a5a5a;
+  font-size: 50px;
+  font-family: 'Cormorant Garamond',
+    serif;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.six .slide-six .content h3 span{
+  color: #a50377;
+  font-size: 60px;
+}
+
+.six .slide-six .content p{
+  font-family: 'Jost', sans-serif;
+  font-size: 16px;
+  color: #818181;
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.six .slide-six .content form{
+  padding: 40px 0;
+  width: 50%;
+  margin: auto;
+}
+
+.six .slide-six .content form .uk-input,
+.six .slide-six .content form .uk-textarea{
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.six .slide-six .content form  button{
+  margin: 30px auto;
+  padding: 0px 35px;
+  font-size: 13px;
+  background: #7a0459;
+  color: #ebebeb;
+  text-transform: capitalize;
+  border: none;
+  border-radius: 4px;
+}
+.six .slide-six .content form  button:hover{
+  background: #80045d;
+}
+.six .slide-six .content .footer{
+  width: 50%;
+  margin: auto;
+}
+.six .slide-six .content .footer p{
+  font-size: 14px;
+}
+.six .slide-six .content .footer span{
+  color: #7a0459;
+}
+.six .slide-six .content .footer .contact-info{
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+  width: 50%;
+}
+
+

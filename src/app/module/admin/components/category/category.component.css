@@ -1,0 +1,83 @@
+
+.admin-container .container {
+    border-radius: 6px;
+    box-shadow: 2px 3px 8px 1px #cccccc;
+    padding: 40px 30px;
+}
+
+.admin-container h2 {
+    font-family: 'Joan', serif;
+    font-size: 35px;
+}
+
+.admin-container .admin-header {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 30px;
+}
+
+.admin-container .admin-header h3 {
+    font-family: 'Joan', serif;
+    font-size: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.admin-container .admin-header a {
+    border: 1px solid #585858;
+    color: #585858;
+    text-decoration: none;
+    padding: 5px 15px;
+    text-align: center;
+    float: right;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 14px;
+}
+
+.admin-container .admin-body{
+    padding: 30px 0;
+}
+
+.admin-container .admin-body table th{
+    font-family: 'Cormorant Garamond',
+    serif;
+    text-transform: capitalize;
+    font-size: 16px;
+    color: #585858;
+}
+
+.admin-container .admin-body table td{
+    font-family: 'Joan', serif;
+    font-size: 14px;
+}
+
+.modal .uk-modal-title{
+    font-family: 'Cormorant Garamond',
+    serif;
+    font-size: 28px;
+}
+
+.modal .uk-form-label{
+    font-family: 'Joan', serif;
+    margin-bottom: 10px;
+}
+
+.modal .uk-form-controls{
+    margin-top: 10px;
+}
+
+.modal .uk-select,
+.modal .uk-input{
+    font-family: 'Joan', serif;
+    font-size: 13px;
+    height: 33px;
+}
+
+.modal .uk-modal-footer .uk-button{
+    margin: 0 5px;
+}
+
+
+

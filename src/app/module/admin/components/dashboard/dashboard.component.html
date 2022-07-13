@@ -1,0 +1,53 @@
+<div class="side-nav">
+    <input type="checkbox" id="check" />
+    <!-- header area start -->
+    <header>
+        <div class="right_area">
+            <form class="uk-search uk-search-large">
+                <i class="fa fa-search" aria-hidden="true"></i><input class="uk-search-input" type="search"
+                    placeholder="Search here...">
+            </form>
+        </div>
+        <div class="uk-inline drop-down">
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+            <div uk-dropdown>
+                <ul>
+                    <li><a href="/"><i class="fas fa-th"></i>Profile</a></li>
+                    <li><a href="/"><i class="fas fa-envelope"></i>Contact</a></li>
+                    <li><a href="/"><i class="fas fa-cog"></i>Settings</a></li>
+                    <li><a (onClick)="logout()"><i class="fa fa-sign-out"></i>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- header area end
+    
+        sidebar start  -->
+
+    <div class="sidebar">
+        <div class="left_area">
+            <h3><i class="fa fa-renren" aria-hidden="true"></i> <span>Smartex</span></h3>
+        </div>
+        <hr />
+
+        <a [routerLink]="['/admin/']"><i class="fas fa-th"></i><span>Dashboard</span></a>
+        <a [routerLink]="['/admin/brand']"><i class="fas fa-envelope"></i><span>Brands</span></a>
+        <a [routerLink]="['/admin/category']"><i class="fas fa-envelope"></i><span>Categories</span></a>
+        <a [routerLink]="['/admin/product']"><i class="fas fa-archive"></i><span>Product</span></a>
+        <a [routerLink]="['/admin/']"><i class="fas fa-cog"></i><span>Setting</span></a>
+        <a [routerLink]="['/admin/']"><i class="fas fa-users"></i><span>Leaderboard</span></a>
+
+        <label for="check">
+            <i class="fa fa-angle-right" id="sidebar_btn" aria-hidden="true"></i>
+        </label>
+    </div>
+    <!-- sidebar end -->
+    <div class="content">
+
+        <!-- <Home path="/admin_dashboard/Home"></Home> -->
+        <router-outlet></router-outlet>
+
+    </div>
+
+
+</div>
