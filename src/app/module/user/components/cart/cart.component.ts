@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared-service.service';
+import { environment } from 'src/environments/environment';
 import { ProductsService } from '../products/products.service';
+
 
 @Component({
   selector: 'app-cart',
@@ -25,7 +27,7 @@ export class CartComponent implements OnInit {
   }
 
   options = {
-    "key": "YOUR_KEY_ID", // Enter the Key ID generated from the Dashboard
+    "key": environment.razorpay, // Enter the Key ID generated from the Dashboard
     "amount": "2", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
     "currency": "INR",
     "name": "Acme Corp",
