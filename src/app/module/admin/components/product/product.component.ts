@@ -121,7 +121,7 @@ export class ProductComponent implements OnInit {
             icon: 'success',
             title: response.message,
           });
-         
+          console.log(response);
           this.getProducts()
           this.ukclose.nativeElement.click()
         },
