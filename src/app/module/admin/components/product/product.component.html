@@ -55,7 +55,6 @@
                   <input
                     class="uk-input"
                     formControlName="pro_slno"
-                    
                     type="text"
                     placeholder="Enter Sl. No"
                   />
@@ -67,7 +66,6 @@
                   <input
                     class="uk-input"
                     formControlName="pro_code"
-                    
                     type="text"
                     placeholder="Enter Product Code"
                   />
@@ -82,7 +80,6 @@
                   <input
                     class="uk-input"
                     formControlName="pro_name"
-                   
                     type="text"
                     placeholder="Enter Product Name"
                   />
@@ -101,7 +98,6 @@
                       placeholder="Upload Image"
                       accept="*png,jpg"
                       (change)="uploadFile($event)"
-                      
                     />
                   </div>
                 </div>
@@ -118,7 +114,6 @@
                 <input
                   class="uk-input"
                   formControlName="pro_desc"
-                 
                   type="text"
                   placeholder="Enter Product Description"
                 />
@@ -163,7 +158,6 @@
                     <input
                     class="uk-input"
                     formControlName="pro_sgst"
-                  
                     type="text"
                     placeholder="Enter SGST"
                     />
@@ -175,7 +169,6 @@
                   <input
                     class="uk-input"
                     formControlName="pro_cgst"
-                 
                     type="text"
                     placeholder="Enter CGST"
                   />
@@ -187,7 +180,6 @@
                   <input
                     class="uk-input"
                     formControlName="pro_price"
-                  
                     type="text"
                     placeholder="Enter Price"
                   />
@@ -202,7 +194,6 @@
                   <input
                     class="uk-input"
                     formControlName="uid"
-                   
                     type="text"
                     placeholder="Enter User Id"
                   />
@@ -214,7 +205,6 @@
                   <input
                     class="uk-input"
                     formControlName="pro_qty"
-                  
                     type="text"
                     placeholder="Enter Quantity"
                   />
@@ -228,7 +218,7 @@
               <button *ngIf="show_add_btn" class="uk-button uk-button-primary" type="submit" (click)="addProducts()">
                 Create
               </button>
-              <button *ngIf="show_update_btn" class="uk-button uk-button-primary" type="submit" (click)="updateProducts(formValue.value)">
+              <button *ngIf="show_update_btn" class="uk-button uk-button-primary" type="submit" (click)="updateProducts()">
                 Update
               </button>
             </div>

@@ -16,8 +16,11 @@ export class SharedService {
     return _window()
   }
 
-  APIUrl = "https://smxapp-server.herokuapp.com/v1"
+  // APIUrl = "https://smxapp-server.herokuapp.com/v1"
+  APIUrl = "https://127.0.0.1:8000/v1"
   product = '/product'
+  brand = '/brand'
+  category = '/category'
 
   constructor(private http: HttpClient) { }
 
@@ -44,23 +47,50 @@ export class SharedService {
 
   addBrand(val: any) {
     return this.http
-      .post(this.APIUrl + '/brand/addbrand', val)
+      .post(this.APIUrl + this.brand + '/addbrand', val)
   }
 
   getBrand() {
     return this.http
-      .get(this.APIUrl + '/brand/getbrand')
+      .get(this.APIUrl + this.brand + '/getbrand')
   }
+
+  updateBrand(val: any) {
+    return this.http
+      .put(this.APIUrl + this.brand + '/updatebrand', val)
+  }
+
+  deleteBrand(id: any){
+    return this.http
+      .delete(this.APIUrl + this.brand + `/deletebrand/${id}`)
+  }
+
+
+
+
 
   addCategory(val:any){
     return this.http
-      .post(this.APIUrl + '/category/addcategory', val)
+      .post(this.APIUrl + this.category + '/addcategory', val)
   }
 
   getCategory(){
     return this.http
-      .get(this.APIUrl + '/category/getcategory')
+      .get(this.APIUrl + this.category + '/getcategory')
   }
+
+  updateCategory(val: any){
+    return this.http
+      .put(this.APIUrl + this.category + '/updatecategory', val)
+  }
+
+  deleteCategory(id: any){
+    return this.http
+      .delete(this.APIUrl + this.category + `/deletecategory/${id}`)
+  }
+
+
+
 
   addProduct(val:any){
     return this.http

@@ -12,7 +12,6 @@ import { ProductModel } from './product.model';
 export class ProductComponent implements OnInit {
 
   @ViewChild('ukclose') ukclose: any
-  // @ViewChild('fileInput') fileInput: any = ElementRef
 
   productObjModel: ProductModel = new ProductModel()
 
@@ -22,6 +21,7 @@ export class ProductComponent implements OnInit {
   brands: any
   categories: any
   products: any
+
   show_add_btn!: boolean
   show_update_btn!: boolean
 
@@ -75,12 +75,24 @@ export class ProductComponent implements OnInit {
   uploadFile(e: any) {
     this.selectedFile = e.target.files[0]
     console.log(this.selectedFile)
-    // this.formValue.controls['pro_image'].setValue(this.selectedFile)
   }
 
   triggerFile() {
     let ref = document.getElementById('fileInput')
     ref?.click()
+  }
+
+  getProducts() {
+    this.api
+      .getProduct()
+      .subscribe(
+        (response: any) => {
+          this.products = response.data,
+          console.log(response.data)
+        },
+        error => console.log(error)
+
+      )
   }
 
   addProducts() {
@@ -104,11 +116,12 @@ export class ProductComponent implements OnInit {
       .addProduct(formData)
       .subscribe(
         (response: any) => {
+
           Swal.fire({
             icon: 'success',
             title: response.message,
           });
-          // window.setTimeout(function(){location.reload()}, 1000)
+         
           this.getProducts()
           this.ukclose.nativeElement.click()
         },
@@ -118,22 +131,7 @@ export class ProductComponent implements OnInit {
       )
   }
 
-  getProducts() {
-    this.api
-      .getProduct()
-      .subscribe(
-        (response: any) => {
-          this.products = response.data,
-          console.log(response.data)
-        },
-        error => console.log(error)
-
-      )
-  }
-
   editProduct(row: any) {
-
-    console.log(row)
 
     this.show_add_btn = false;
     this.show_update_btn = true;
@@ -155,7 +153,7 @@ export class ProductComponent implements OnInit {
     this.formValue.controls['pro_qty'].setValue(row.pro_qty)
   }
 
-  updateProducts(row: any) {
+  updateProducts() {
 
     console.log(this.id)
 
