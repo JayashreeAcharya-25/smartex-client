@@ -75,7 +75,7 @@
                                     <p class="price">&#8377; {{product.pro_price}}</p>
                                 </div>
                                 <div class="uk-card-footer">
-                                    <a class="shop-now" href="#">Shop Now</a>
+                                    <a class="shop-now" [routerLink]="['product/{{product.id}}']">Shop Now</a>
                                     <a class="cart" uk-icon="icon: bag" uk-tooltip="Add to Cart"
                                         (click)="addToCart(product);"></a>
                                 </div>

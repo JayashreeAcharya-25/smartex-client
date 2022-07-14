@@ -11,16 +11,16 @@
           <thead>
             <tr>
               <th>Sl.No</th>
-              <th>Brand Name</th>
               <th>Brand Image</th>
+              <th>Brand Name</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let res of brands">
               <td>{{ res.brand_slno }}</td>
+              <td><img class="table-img" src='http://127.0.0.1:8000{{res.brand_image}}' alt="image" /></td>
               <td>{{ res.brand_name }}</td>
-              <td><img [src]="res.brand_image" alt="image" /></td>
               <td>
                 <button
                   type="submit"
@@ -81,6 +81,7 @@
             <div class="uk-margin">
               <label class="uk-form-label">Upload Image</label>
               <div class="uk-form-controls">
+                <input class="uk-input" type="text" formControlName="brand_image" (click)="triggerFile()">
                 <input
                   class="uk-input"
                   #fileInput
@@ -89,6 +90,7 @@
                   placeholder="Upload Image"
                   accept="*png,jpg"
                   (change)="uploadFile($event)"
+                  style="display: none;"
                 />
               </div>
             </div>

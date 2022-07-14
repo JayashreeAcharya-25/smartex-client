@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Joan&display=swap');
 
 .cart{
-    margin: 50px 100px;
+    background: #fff;
+}
+
+.cart .cart-section{
+    padding: 50px 100px;
+    /* background: linear-gradient(rgba(235,235,235,0.8),rgba(235,235,235,0.7)),
+      url('../../../../../assets/about-bg.png') no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh; */
 }
 
 .cart .cart-container{
@@ -22,7 +31,7 @@
     font-family: 'Joan', serif;
 }
 
-.cart .default-container button{
+.cart .default-container a{
     padding: 8px 25px;
     border: none;
     font-size: 13px;
@@ -31,11 +40,18 @@
     border-radius: 4px;
     background: #7a0459;
     color: #ebebeb;
+    text-decoration: none;
     transition: .3s ease-in-out;
 }
 
-.cart .default-container button:hover{
+.cart .default-container a:hover{
     background: #333;
+}
+
+.cart .summary .disable-btn:read-only{
+    background: #6d6d6d;
+    cursor: not-allowed;
+    
 }
 
 .cart .table{

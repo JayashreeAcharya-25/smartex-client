@@ -96,7 +96,9 @@ export class ProductComponent implements OnInit {
   }
 
   addProducts() {
-    let formData = new FormData()
+    const formData = new FormData()
+
+    console.log(this.formValue.value)
 
     formData.append('pro_slno', this.formValue.get('pro_slno')?.value)
     formData.append('pro_code', this.formValue.get('pro_code')?.value)
@@ -117,13 +119,14 @@ export class ProductComponent implements OnInit {
       .subscribe(
         (response: any) => {
 
-          Swal.fire({
-            icon: 'success',
-            title: response.message,
-          });
-          console.log(response);
+          // Swal.fire({
+          //   icon: 'success',
+          //   title: response.message,
+          // });
+          
           this.getProducts()
           this.ukclose.nativeElement.click()
+          
         },
         error =>
           console.log(error)

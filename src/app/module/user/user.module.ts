@@ -12,6 +12,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductsService } from './components/products/products.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ProductComponent } from './components/products/product/product.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     IndexComponent,
     ProductsComponent,
     CartComponent,
+    ProductComponent,
   ],
   imports: [
     CommonModule,

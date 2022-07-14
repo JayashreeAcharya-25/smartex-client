@@ -13,6 +13,7 @@ import { BrandModel } from './brand.model';
 export class BrandComponent implements OnInit {
 
   @ViewChild('ukclose') ukclose: any
+  @ViewChild('fileInput') fileInput: any
 
   brandObjModel: BrandModel = new BrandModel()
 
@@ -52,11 +53,13 @@ export class BrandComponent implements OnInit {
   }
 
   triggerFile() {
-    let ref = document.getElementById('fileInput')
-    ref?.click()
+    // let ref = document.getElementById('fileInput')
+    // ref?.click()
+    this.fileInput.nativeElement.click()
   }
 
   getBrands() {
+
     this.api
       .getBrand()
       .subscribe(
@@ -65,13 +68,12 @@ export class BrandComponent implements OnInit {
           console.log(response.data)
         },
         error => console.log(error)
-
       )
   }
 
   addBrands() {
 
-    const formData = new FormData();
+    let formData = new FormData();
     
     formData.append('brand_slno', this.formValue.get('brand_slno')?.value);
     formData.append('brand_name', this.formValue.get('brand_name')?.value);
@@ -84,7 +86,8 @@ export class BrandComponent implements OnInit {
             
             Swal.fire({
               icon: 'success',
-              title: response.message,
+              title: '<h3 style="font-size: 18px; font-family: Joan, serif; font-weight: 500 ">'+response.message+'</h3>',
+              confirmButtonColor: '#7a0459',
             });
             console.log(response);
 
@@ -125,13 +128,14 @@ export class BrandComponent implements OnInit {
       .updateBrand(formData)
       .subscribe(
         (response: any) => {
-          // Swal.fire({
-          //   icon: 'success',
-          //   title: response.message,
-          // });
-          console.log(response)
+          Swal.fire({
+            icon: 'success',
+            title: '<h3 style="font-size: 18px; font-family: Joan, serif; font-weight: 500 ">'+response.message+'</h3>',
+          });
+          console.log(response.data)
           // window.setTimeout(function(){location.reload()}, 1000)
-          // this.ukclose.nativeElement.click()
+          this.getBrands()
+          this.ukclose.nativeElement.click()
 
         },
         error =>
@@ -147,7 +151,9 @@ export class BrandComponent implements OnInit {
       .subscribe((response: any) => {
         Swal.fire({
           icon: 'success',
-          title: response.message,
+          title: '<h3 style="font-size: 18px; font-family: Joan, serif; font-weight: 500 ">'+response.message+'</h3>',
+          confirmButtonColor: '#7a0459',
+          
         });
         
         this.getBrands()

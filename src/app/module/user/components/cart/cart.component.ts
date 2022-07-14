@@ -85,6 +85,8 @@ export class CartComponent implements OnInit {
   remove(item: any) {
     const index = this.selectedProducts.indexOf(item)
     this.selectedProducts.splice(index, 1)
+    this.grandTotal()
+    this.netAmt()
     console.log(this.selectedProducts)
   }
 

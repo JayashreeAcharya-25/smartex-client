@@ -1,0 +1,87 @@
+.product-section .product-container{
+    display: flex;
+    padding: 150px 100px;
+}
+.product-section .section:nth-child(1){
+    width: 40%;
+}
+
+.product-section .section:nth-child(1) img{
+    height: 400px;
+    width: 500px;
+}
+
+.product-section .section:nth-child(2){
+    width: 60%;
+    padding: 20px 40px;
+}
+
+.product-section .section:nth-child(2) .row{
+    width: 70%;
+    margin-bottom: 60px;
+}
+
+.product-section .section:nth-child(2) .row h1{
+    font-family: 'Cormorant Garamond',
+    serif;
+    font-size: 50px;
+    font-weight: 900;
+    text-transform: capitalize;
+    color: #7a0459;
+    margin-bottom: 25px;
+}
+
+.product-section .section:nth-child(2) .row  p{
+    font-family: 'Jost', sans-serif;
+    color: #7e7e7e;
+    font-size: 16px;
+}
+
+.product-section .section:nth-child(2) .row-container{
+    display: flex;
+    column-gap: 100px;
+    margin: auto 0;
+}
+
+.product-section .section:nth-child(2) .row-container h3{
+    font-family: 'Cormorant Garamond',
+    serif;
+    font-size: 22px;
+    margin-bottom: 0;
+    margin: auto 0;
+}
+
+.product-section .section:nth-child(2) .row-container .row-section{
+    border: 1px solid #818181;
+    padding: 14px 30px;
+    border-radius: 30px;
+}
+
+.product-section .section:nth-child(2) .row-section a{
+    padding: 0 20px;
+}
+
+.product-section .section:nth-child(2) .row h2{
+    font-family: 'Cormorant Garamond',
+    serif;
+    font-size: 25px;
+    color: #333333;
+}
+
+.product-section .section:nth-child(2) .row  .cart{
+    padding: 8px 25px;
+    border: none;
+    font-size: 13px;
+    font-family: 'Joan', serif;
+    cursor: pointer;
+    border-radius: 4px;
+    background: #7a0459;
+    color: #ebebeb;
+    text-decoration: none;
+    transition: .3s ease-in-out;
+    float: right;
+}
+
+.product-section .section:nth-child(2) .row  .cart:hover{
+    background: #333;
+}

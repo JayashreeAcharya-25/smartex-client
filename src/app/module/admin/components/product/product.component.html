@@ -11,26 +11,26 @@
           <thead>
             <tr>
               <th>Sl.No</th>
+              <th>Image</th>
               <th>Code</th>
               <th>Name</th>
               <th>Description</th>
               <th>Brand</th>
               <th>Category</th>
               <th>Price</th>
-              <th>Image</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let res of products">
               <td>{{res.pro_slno}}</td>
+              <td><img class="table-img" src='http://127.0.0.1:8000/{{res.pro_image}}'/></td>
               <td>{{res.pro_code}}</td>
               <td>{{res.pro_name}}</td>
               <td>{{res.pro_desc}}</td>
               <td>{{res.pro_brand}}</td>
               <td>{{res.pro_category}}</td>
               <td>{{res.pro_price}}</td>
-              <td><img [src]="res.pro_image"></td>
               <td>
                 <button type="submit" uk-icon="icon: trash" (click)="deleteProducts(res.id)"></button> &nbsp; &nbsp;
                 <button type="button" uk-icon="icon: pencil" uk-toggle="target: #modal-center" (click)="editProduct(res)"></button>
@@ -94,6 +94,7 @@
                     <input
                       class="uk-input"
                       #fileInput
+                      formControlName="pro_image"
                       type="file"
                       placeholder="Upload Image"
                       accept="*png,jpg"
