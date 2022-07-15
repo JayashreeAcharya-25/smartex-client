@@ -21,6 +21,7 @@ export class SharedService {
   product = '/product'
   brand = '/brand'
   category = '/category'
+  stock = '/stock'
 
   constructor(private http: HttpClient) { }
 
@@ -67,8 +68,6 @@ export class SharedService {
 
 
 
-
-
   addCategory(val:any){
     return this.http
       .post(this.APIUrl + this.category + '/addcategory', val)
@@ -91,10 +90,9 @@ export class SharedService {
 
 
 
-
   addProduct(val:any){
     return this.http
-      .post(this.APIUrl + '/product/addproduct', val)
+      .post(this.APIUrl + this.product + '/addproduct', val)
   }
 
   getProduct(){
@@ -111,4 +109,27 @@ export class SharedService {
     return this.http
       .delete(this.APIUrl + this.product + `/deleteproduct/${id}`)
   }
+
+
+
+  addStock(val:any){
+    return this.http
+      .post(this.APIUrl + this.stock + '/addstock', val)
+  }
+
+  getStock(){
+    return this.http
+      .get(this.APIUrl + this.stock + '/getstock')
+  }
+
+  updateStock(val: any){
+    return this.http
+      .put(this.APIUrl + this.stock + '/updatestock', val)
+  }
+
+  deleteStock(id: any){
+    return this.http
+      .delete(this.APIUrl + this.stock + `/deletestock/${id}`)
+  }
+
 }

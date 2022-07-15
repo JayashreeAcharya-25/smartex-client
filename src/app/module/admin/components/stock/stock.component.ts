@@ -1,21 +1,20 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { SharedService } from 'src/app/shared-service.service';
 import Swal from 'sweetalert2';
-import { BrandModel } from './brand.model';
+import { StockModel } from './stock.model';
 
 @Component({
-  selector: 'app-brand',
-  templateUrl: './brand.component.html',
-  styleUrls: ['./brand.component.css']
+  selector: 'app-stock',
+  templateUrl: './stock.component.html',
+  styleUrls: ['../brand/brand.component.css']
 })
-
-export class BrandComponent implements OnInit {
+export class StockComponent implements OnInit {
 
   @ViewChild('ukclose') ukclose: any
   @ViewChild('fileInput') fileInput: any
 
-  brandObjModel: BrandModel = new BrandModel()
+  stockObjModel: StockModel = new StockModel()
 
   formValue: FormGroup
   selectedFile!: any
@@ -23,21 +22,34 @@ export class BrandComponent implements OnInit {
   show_add_btn!: boolean
   show_update_btn!: boolean
 
-  brands: any
+  products: any
+  stocks: any
 
   id: any
 
   constructor( private api: SharedService, private formBuilder: FormBuilder) {
     this.formValue = this.formBuilder.group({
-      brand_slno: [''],
-      brand_name: [''],
-      brand_image: [null],
+      stk_slno: [''],
+      stk_pro_id: [''],
+      stk_qty: [''],
+      stk_status: [''],
     })
    }
 
   ngOnInit(): void {
 
-    this.getBrands()
+    this.getStocks()
+
+    this.api
+      .getProduct()
+      .subscribe(
+        (response: any) => {
+          this.products = response.data,
+          console.log(response.data)
+        },
+        error => console.log(error)
+
+      )
     
   }
 
@@ -47,40 +59,23 @@ export class BrandComponent implements OnInit {
     this.show_update_btn = false;
   }
 
-  uploadFile(event: any){
-    this.selectedFile = event.target.files[0]
-    console.log(this.selectedFile)
-  }
-
-  triggerFile() {
-    // let ref = document.getElementById('fileInput')
-    // ref?.click()
-    this.fileInput.nativeElement.click()
-  }
-
-  getBrands() {
+  getStocks() {
 
     this.api
-      .getBrand()
+      .getStock()
       .subscribe(
         (response: any) => {
-          this.brands = response.data,
+          this.stocks = response.data,
           console.log(response.data)
         },
         error => console.log(error)
       )
   }
 
-  addBrands() {
-
-    let formData = new FormData();
-    
-    formData.append('brand_slno', this.formValue.get('brand_slno')?.value);
-    formData.append('brand_name', this.formValue.get('brand_name')?.value);
-    formData.append('brand_image', this.selectedFile)
+  addStocks() {
     
     this.api
-        .addBrand(formData)
+        .addStock(this.formValue.value)
         .subscribe(
           (response: any) => {
             
@@ -91,7 +86,7 @@ export class BrandComponent implements OnInit {
             });
             console.log(response);
 
-            this.getBrands()
+            this.getStocks()
             this.ukclose.nativeElement.click()
           },
           error => {
@@ -100,32 +95,25 @@ export class BrandComponent implements OnInit {
         )
   }
 
-  editBrand(row: any){
+  editStocks(row: any){
 
     this.show_add_btn = false;
     this.show_update_btn = true;
 
-    this.brandObjModel.id = row.id
-    this.id = this.brandObjModel.id
+    this.stockObjModel.id = row.id
+    this.id = this.stockObjModel.id
 
-    this.formValue.controls['brand_slno'].setValue(row.brand_slno)
-    this.formValue.controls['brand_name'].setValue(row.brand_name)
-    this.formValue.controls['brand_image'].setValue(row.brand_image)
+    this.formValue.controls['stk_slno'].setValue(row.stk_slno)
+    this.formValue.controls['stk_pro_id'].setValue(row.stk_pro_id)
+    this.formValue.controls['stk_qty'].setValue(row.stk_qty)
+    this.formValue.controls['stk_status'].setValue(row.stk_status)
 
   }
 
-  updateBrands(){
-
-    console.log(this.id)
-
-    const formData = new FormData();
-
-    formData.append('brand_slno', this.formValue.get('brand_slno')?.value);
-    formData.append('brand_name', this.formValue.get('brand_name')?.value);
-    formData.append('brand_image', this.selectedFile)
+  updateStocks(){
 
     this.api
-      .updateBrand(formData)
+      .updateStock(this.formValue.value)
       .subscribe(
         (response: any) => {
           Swal.fire({
@@ -134,7 +122,7 @@ export class BrandComponent implements OnInit {
           });
           console.log(response.data)
           // window.setTimeout(function(){location.reload()}, 1000)
-          this.getBrands()
+          this.getStocks()
           this.ukclose.nativeElement.click()
 
         },
@@ -144,10 +132,10 @@ export class BrandComponent implements OnInit {
       )
   }
 
-  deleteBrands(id: any) {
+  deleteStocks(id: any) {
 
     this.api
-      .deleteBrand(id)
+      .deleteStock(id)
       .subscribe((response: any) => {
         Swal.fire({
           icon: 'success',
@@ -156,10 +144,9 @@ export class BrandComponent implements OnInit {
           
         });
         
-        this.getBrands()
+        this.getStocks()
       })
 
   }
 
 }
-

@@ -81,6 +81,32 @@ export class ProductsComponent implements OnInit {
     
   }
 
+  getProductData(product: any){
+
+    this.productObjModel.id = product.id;
+    const data = {
+      id: product.id,
+      pro_name: product.pro_name,
+      pro_desc: product.pro_desc,
+      pro_image: product.pro_image,
+      pro_category: product.pro_category,
+      pro_price: product.pro_price,
+      pro_qty: product.pro_qty,
+
+    }
+    // this.formvalue.controls['id'].setValue(product.id)
+    // this.formvalue.controls['pro_name'].setValue(product.pro_name)
+    // this.formvalue.controls['pro_price'].setValue(product.pro_price)
+    // this.formvalue.controls['pro_qty'].setValue(product.pro_qty)
+    // this.formvalue.controls['pro_desc'].setValue(product.pro_desc)
+    // this.formvalue.controls['pro_image'].setValue(product.pro_image)
+    // this.formvalue.controls['pro_category'].setValue(product.pro_category)
+    // console.log(this.formvalue.value)
+
+    this._service.sendProductData(data)
+    
+  }
+
   filterByDropdown(){
     this.filterproduct = [...this.products.filter(
       (product: any) => 

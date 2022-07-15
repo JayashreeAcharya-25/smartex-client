@@ -1,46 +1,108 @@
-<div class="product-section">
-  <div class="product-container">
+<div class="product-section" *ngFor="let item of selectedProducts;">
+  <div class="product-container container-1">
     <div class="section">
-        <img src="../../../../../../assets/about-bg.png" alt="">
+      <img src="../../../../../../assets/about-section-2.jpg" alt="" />
     </div>
     <div class="section">
       <div class="row">
-        <h1>Product name</h1>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, atque
-          cum. Consequatur at excepturi neque, voluptatibus minus fugiat et,
-          aliquam eaque explicabo totam aut esse consectetur quia ad porro. Nam!
-        </p>
-      </div>
-      <div class="row">
-        <div class="row-container">
-            <h3>Qty</h3>
-            <div class="row-section">
-                <a>
-                    <svg width="11" height="11" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <rect x="9" y="1" width="1" height="17"></rect>
-                        <rect x="1" y="9" width="17" height="1"></rect>
-                    </svg>
-                </a>
+        <h1>{{item.pro_name}}</h1>
+        <div class="row-container uk-divider">
+          <div class="row-section">
+            <h3>Price:</h3>
+            <p>&#8377; {{item.pro_price}}</p>
+          </div>
+          <div class="row-section">
+            <span>In stock :</span>
+            <ng-container *ngFor="let stk of stocks;">
+              <span>{{stk.stk_qty - item.pro_qty}}</span>
+            </ng-container>
+          </div>
+        </div>
+        <div class="row-container uk-divider">
+          <p>{{item.pro_desc}}</p>
+        </div>
+        <div class="row-container uk-divider">
+          <div class="row-section">
+            <h3>Qty:</h3>
+            <div class="column-section">
+              <a (click)="increment_qty(item)">
+                <svg
+                  width="11"
+                  height="11"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect x="9" y="1" width="1" height="17"></rect>
+                  <rect x="1" y="9" width="17" height="1"></rect>
+                </svg>
+              </a>
 
-                <span>2</span>
+              <span>{{item.pro_qty}}</span>
 
-                <a>
-                    <svg width="11" height="11" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <rect height="1" width="18" y="9" x="1"></rect>
-                    </svg>
-                </a>
+              <a (click)="decrement_qty(item)">
+                <svg
+                  width="11"
+                  height="11"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect height="1" width="18" y="9" x="1"></rect>
+                </svg>
+              </a>
             </div>
+          </div>
+          <div class="row-section">
+            <button class="cart" (click)="addToBasket();">Add to Basket</button>
+          </div>
+        </div>
+        <div class="row-container display-block">
+          <div class="row-section">
+            <h3>Categories:</h3>
+            <p>Category1, Category2, Category3</p>
+          </div>
+          <div class="row-section">
+            <h3>Tags:</h3>
+            <p>#hash1, #hash2, #hash3</p>
+          </div>
+          <div class="row-section">
+            <h3>Share this product:</h3>
+            <div class="social-media-icon">
+              <a
+                href=""
+                class="uk-icon-button uk-margin-small-right"
+                uk-icon="twitter"
+              ></a>
+              <a
+                href=""
+                class="uk-icon-button uk-margin-small-right"
+                uk-icon="facebook"
+              ></a>
+              <a href="" class="uk-icon-button" uk-icon="youtube"></a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <h2>&#8377; 3000</h2>
-      </div>
-      <div class="row">
-        <button class="cart">Add to cart</button>
-      </div>
     </div>
+  </div>
+  <div class="product-container">
+    <ul uk-tab>
+      <li><a href="#">Description</a></li>
+      <li><a href="#">Additional Information</a></li>
+      <li><a href="#">Shipping Charge</a></li>
+      <li><a href="#">Review</a></li>
+    </ul>
+
+    <ul class="uk-switcher uk-margin">
+      <li>
+        {{item.pro_desc}}
+      </li>
+      <li>
+        {{item.pro_desc}}
+      </li>
+      <li>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+        dolore eu fugiat nulla pariatur, sed do eiusmod.
+      </li>
+    </ul>
   </div>
 </div>

@@ -18,7 +18,10 @@ const routes: Routes = [
         { path:'signup', component: SignupComponent},
         { path:'login', component: LoginComponent},
         { path:'product', component: ProductsComponent},
-        { path:'product/product-name', component: ProductComponent},
+          // { path:'product', redirectTo: ':id', pathMatch:'full'},
+        { path:'product/:id', component: ProductComponent, pathMatch:'full'},
+        
+       
         { path:'yourcart', component: CartComponent},
       ]
     }

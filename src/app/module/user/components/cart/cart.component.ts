@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared-service.service';
 import { environment } from 'src/environments/environment';
+import { ProductService } from '../products/product/product.service';
 import { ProductsService } from '../products/products.service';
-
+ProductService
 
 @Component({
   selector: 'app-cart',
@@ -17,12 +18,13 @@ export class CartComponent implements OnInit {
   amt: any
   id: any
   selectedProducts: any = [];
+  product: any = []
   total: number = 0;
   sgst: number = 2 / 100;
   cgst: number = 2 / 100;
   netPrice: number = 0;
 
-  constructor(private _service: ProductsService, private api:SharedService) {
+  constructor(private _service: ProductsService, private _product_service: ProductService, private api:SharedService) {
 
   }
 
@@ -51,7 +53,12 @@ export class CartComponent implements OnInit {
   ngOnInit() {
 
     this.selectedProducts = this._service.retrievePassedObject()
-    console.log("Products", this.selectedProducts)
+    
+    this.product = this._product_service.retrieveItems()[0]
+    this.selectedProducts = [...this.product]
+    console.log(this.selectedProducts)
+    
+    
 
     this.grandTotal();
     this.netAmt();

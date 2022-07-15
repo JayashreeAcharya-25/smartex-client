@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class ProductsService {
 
   passedData: any[] = [];
-  allData: any[] = [];
+  productData: any[] = [];
 
   constructor() { }
 
@@ -23,4 +23,21 @@ export class ProductsService {
     return this.passedData;
     
   }
+
+  sendProductData(product: any){
+    if(this.productData.length == 0){
+      this.productData.push(product);
+      localStorage.setItem('products', JSON.stringify(this.productData))
+    } else{
+      this.productData;
+    }
+    // this.productData.concat(product)
+    // localStorage.setItem('products', JSON.stringify(this.productData))
+  }
+
+  retrieveProductData(){
+    return this.productData;
+  }
+  
+
 }

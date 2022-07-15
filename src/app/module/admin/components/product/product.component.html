@@ -18,6 +18,7 @@
               <th>Brand</th>
               <th>Category</th>
               <th>Price</th>
+              <th>Qty</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -31,6 +32,7 @@
               <td>{{res.pro_brand}}</td>
               <td>{{res.pro_category}}</td>
               <td>{{res.pro_price}}</td>
+              <td>{{res.pro_qty}}</td>
               <td>
                 <button type="submit" uk-icon="icon: trash" (click)="deleteProducts(res.id)"></button> &nbsp; &nbsp;
                 <button type="button" uk-icon="icon: pencil" uk-toggle="target: #modal-center" (click)="editProduct(res)"></button>
