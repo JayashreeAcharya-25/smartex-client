@@ -4,7 +4,7 @@
     <div class="container">
       <div class="admin-header">
         <h3>List Of Products</h3>
-        <a href="#modal-center" uk-icon="icon: plus" uk-toggle (click)="onClickAddBtn()"></a>
+        <a href="#modal-container" uk-icon="icon: plus" uk-toggle (click)="onClickAddBtn()"></a>
       </div>
       <div class="admin-body">
         <table class="uk-table uk-table-small uk-table-divider">
@@ -35,22 +35,22 @@
               <td>{{res.pro_qty}}</td>
               <td>
                 <button type="submit" uk-icon="icon: trash" (click)="deleteProducts(res.id)"></button> &nbsp; &nbsp;
-                <button type="button" uk-icon="icon: pencil" uk-toggle="target: #modal-center" (click)="editProduct(res)"></button>
+                <button type="button" uk-icon="icon: pencil" uk-toggle="target: #modal-container" (click)="editProduct(res)"></button>
               </td>
           </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <div id="modal-center" #ukmodal class="uk-flex-top modal" uk-modal>
-      <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+    <div id="modal-container" #ukmodal class="uk-modal-container modal" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body">
         <div class="uk-modal-header">
           <h3 class="uk-modal-title">{{show_add_btn ? "Add Product" : "Update Product"}}</h3>
           <button #ukclose class="uk-modal-close-default" type="button" uk-close></button>
         </div>
         <div class="uk-modal-body">
           <form [formGroup]="formValue">
-            <div class="uk-margin modal-grid-2">
+            <div class="uk-margin modal-grid-3">
               <div>
                 <label class="uk-form-label">Sl. No</label>
                 <div class="uk-form-controls">
@@ -73,9 +73,6 @@
                   />
                 </div>
               </div>
-            </div>
-            <div class="uk-margin"></div>
-            <div class="uk-margin modal-grid-2">
               <div>
                 <label class="uk-form-label" >Name</label>
                 <div class="uk-form-controls">
@@ -87,40 +84,41 @@
                   />
                 </div>
               </div>
-
-              <div>
-                <div>
-                  <label class="uk-form-label">Upload Image</label>
-                  <div class="uk-form-controls">
-                    <input  #input1 class="uk-input" type="text"  formControlName="pro_image" (click)="triggerFile()">
-                    <input
-                      class="uk-input"
-                      #fileInput
-                      formControlName="pro_image"
-                      type="file"
-                      placeholder="Upload Image"
-                      accept="image/*" 
-                      (change)="uploadFile($event)"
-                      style="display: none;"
-                    />
-                  </div>
+            </div>
+            
+            <div class="uk-margin modal-grid-3"> 
+              <div class="uk-margin">
+                <label class="uk-form-label" >Description</label>
+                <div class="uk-form-controls">
+                  <input
+                    class="uk-input"
+                    formControlName="pro_desc"
+                    type="text"
+                    placeholder="Enter Product Description"
+                  />
                 </div>
               </div>
-
-
-
-            </div>
-
-
-            <div class="uk-margin">
-              <label class="uk-form-label" >Description</label>
-              <div class="uk-form-controls">
-                <input
-                  class="uk-input"
-                  formControlName="pro_desc"
-                  type="text"
-                  placeholder="Enter Product Description"
-                />
+              <div class="uk-margin">
+                <label class="uk-form-label" >Additional Information</label>
+                <div class="uk-form-controls">
+                  <input
+                    class="uk-input"
+                    formControlName="pro_adinfo"
+                    type="text"
+                    placeholder="Enter Additional Information"
+                  />
+                </div>
+              </div>
+              <div class="uk-margin">
+                <label class="uk-form-label" >Tags</label>
+                <div class="uk-form-controls">
+                  <input
+                    class="uk-input"
+                    formControlName="pro_tag"
+                    type="text"
+                    placeholder="Enter Tags"
+                  />
+                </div>
               </div>
             </div>
 
@@ -193,6 +191,20 @@
 
             <div class="uk-margin modal-grid-3">
               <div>
+                <label class="uk-form-label">Shipping Charges</label>
+                <div class="uk-form-controls">
+                    <input
+                    class="uk-input"
+                    formControlName="pro_shippingcharge"
+                    type="text"
+                    placeholder="Enter Shipping Charges"
+                    />
+                </div>
+              </div>
+            </div>
+
+            <div class="uk-margin modal-grid-3">
+              <div>
                 <label class="uk-form-label">User Id</label>
                 <div class="uk-form-controls">
                   <input
@@ -212,6 +224,24 @@
                     type="text"
                     placeholder="Enter Quantity"
                   />
+                </div>
+              </div>
+              <div>
+                <div>
+                  <label class="uk-form-label">Upload Image</label>
+                  <div class="uk-form-controls">
+                    <input  #input1 class="uk-input" type="text"  formControlName="pro_image" (click)="triggerFile()">
+                    <input
+                      class="uk-input"
+                      #fileInput
+                      formControlName="pro_image"
+                      type="file"
+                      placeholder="Upload Image"
+                      accept="image/*" 
+                      (change)="uploadFile($event)"
+                      style="display: none;"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

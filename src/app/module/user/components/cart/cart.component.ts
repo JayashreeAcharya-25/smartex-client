@@ -22,6 +22,7 @@ export class CartComponent implements OnInit {
   total: number = 0;
   sgst: number = 2 / 100;
   cgst: number = 2 / 100;
+  shippingcharges: any
   netPrice: number = 0;
 
   constructor(private _service: ProductsService, private _product_service: ProductService, private api:SharedService) {
@@ -54,11 +55,13 @@ export class CartComponent implements OnInit {
 
     this.selectedProducts = this._service.retrievePassedObject()
     
-    this.product = this._product_service.retrieveItems()[0]
-    this.selectedProducts = [...this.product]
+    // this.product = this._product_service.retrieveItems()[0]
+    // this.selectedProducts = [...this.product]
     console.log(this.selectedProducts)
     
-    
+    this.selectedProducts.find((sc: any)=>{
+      this.shippingcharges =  sc.pro_shippingcharge
+    })
 
     this.grandTotal();
     this.netAmt();
@@ -104,8 +107,11 @@ export class CartComponent implements OnInit {
   }
 
   netAmt() {
-    this.netPrice = this.total + this.cgst + this.sgst
+    this.netPrice = this.total + this.cgst + this.sgst + this.shippingcharges
   }
+
+
+
   rzp1:any
   pay() {
     this.rzp1 = new this.api.nativeWindow.Razorpay(this.options);

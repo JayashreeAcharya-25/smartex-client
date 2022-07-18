@@ -60,13 +60,13 @@
           </div>
         </div>
         <div class="row-container display-block">
-          <div class="row-section">
+          <!-- <div class="row-section">
             <h3>Category:</h3>
-            <p>Category1, Category2, Category3</p>
-          </div>
+            <p>{{itemCategory}}</p>
+          </div> -->
           <div class="row-section">
             <h3>Tags:</h3>
-            <p>#hash1, #hash2, #hash3</p>
+            <p>{{item.pro_tag}}</p>
           </div>
           <div class="row-section">
             <h3>Share this product:</h3>
@@ -91,7 +91,7 @@
   <div class="product-container">
     <ul uk-tab>
       <li><a href="#">Description</a></li>
-      <li><a href="#">Additional Information</a></li>
+      <li><a href="#">More Info</a></li>
       <li><a href="#">Shipping Charge</a></li>
       <li><a href="#">Review</a></li>
     </ul>
@@ -101,7 +101,10 @@
         {{item.pro_desc}}
       </li>
       <li>
-        {{item.pro_desc}}
+        {{item.pro_adinfo}}
+      </li>
+      <li>
+        <p>Shipping Fee: &nbsp; {{item.pro_shippingcharge | currency: 'INR'}}</p>
       </li>
       <li>
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum

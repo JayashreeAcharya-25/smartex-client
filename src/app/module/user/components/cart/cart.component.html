@@ -64,7 +64,7 @@
                             <a [routerLink]="['/product']"><span uk-icon="icon: arrow-left"></span> Continue Shopping</a>
                         </div>
                         <div class="section">
-                            <p>Total Amount: <span>&#8377; {{total}}</span></p>
+                            <p>Total Amount: <span>{{total | currency: 'INR'}}</span></p>
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                 <div class="section">
                     <div class="section-container">
                         <h5>Sub Total</h5>
-                        <p>&#8377; {{total}}</p>
+                        <p>{{total | currency: 'INR'}}</p>
                     </div>
                     <div class="section-container">
                         <h5>SGST</h5>
@@ -91,11 +91,15 @@
                         <h5>CGST</h5>
                         <p>{{cgst | percent}}</p>
                     </div>
+                    <div class="section-container">
+                        <h5>Shipping Charge</h5>
+                        <p>{{shippingcharges | currency: 'INR'}}</p>
+                    </div>
                 </div>
                 <div class="section">
                     <div class="section-container">
                         <h5>Total Price</h5>
-                        <p>&#8377; {{netPrice | number }}</p>
+                        <p>{{netPrice | currency: 'INR' }}</p>
                     </div>
                 </div>
                 <div class="section">

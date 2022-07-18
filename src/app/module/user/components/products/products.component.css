@@ -101,16 +101,35 @@
     grid-column-gap: 20px;
     padding: 30px;
 }
+
+.product .row .section .card{
+    cursor: pointer;
+}
+
 .product .row .section .card .uk-card{
     background: #ffffff;
 }
+
 .product .row .section .card h3{
     color: #7a0459;
     font-weight: 600;
-    font-size: 30px;
+    font-size: 22px;
     font-family: 'Cormorant Garamond',
     serif;
-    margin-bottom: 0;
+    margin-bottom: 20px;
+    /* text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 110px;
+    line-height: 1.5em;
+    position: relative; */
+}
+
+.product .row .section .card .description {
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .product .row .section .card p{

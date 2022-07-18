@@ -13,6 +13,8 @@ export class ProductComponent implements OnInit {
 
   selectedProducts: any = [];
   stocks: any = []
+  itemCategory: any
+  categories: any = []
 
   constructor(private _service: ProductsService, private _product_service: ProductService, private api: SharedService, private route: ActivatedRoute, private router: Router) { 
     // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
@@ -36,6 +38,8 @@ export class ProductComponent implements OnInit {
         this.selectedProducts = JSON.parse(item)
       } catch(e) {}
     } 
+      
+      
   }
 
   increment_qty(item: any) {

@@ -96,8 +96,14 @@ export class CategoryComponent implements OnInit {
 
   updateCategories(){
 
+    let data = new FormData()
+    data.append('id', this.id)
+    data.append('cat_slno', this.formValue.get('cat_slno')?.value)
+    data.append('cat_name', this.formValue.get('cat_name')?.value)
+    data.append('cat_brand', this.formValue.get('cat_brand')?.value)
+
     this.api
-      .updateCategory(this.formValue.value)
+      .updateCategory(data)
       .subscribe(
         (response: any) => {
 

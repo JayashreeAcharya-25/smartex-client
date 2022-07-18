@@ -5,8 +5,11 @@ export class ProductModel{
     pro_name: string = '';
     pro_image: string = '';
     pro_desc: string = '';
+    pro_adinfo: string = '';
     pro_brand: string = '';
     pro_category: string ='';
+    pro_tag: string ='';
+    pro_shippingcharge: number = 0;
     pro_qty:number = 0;
     pro_sgst: number = 0;
     pro_cgst: number = 0;

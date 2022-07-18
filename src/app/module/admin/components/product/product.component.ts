@@ -38,6 +38,7 @@ export class ProductComponent implements OnInit {
       pro_name: [''],
       pro_image: null,
       pro_desc: [''],
+      pro_adinfo: [''],
       pro_brand: [''],
       pro_category: [''],
       pro_sgst: [''],
@@ -110,11 +111,14 @@ export class ProductComponent implements OnInit {
     formData.append('pro_code', this.formValue.get('pro_code')?.value)
     formData.append('pro_name', this.formValue.get('pro_name')?.value)
     formData.append('pro_desc', this.formValue.get('pro_desc')?.value)
+    formData.append('pro_adinfo', this.formValue.get('pro_adinfo')?.value)
+    formData.append('pro_tag', this.formValue.get('pro_tag')?.value)
     formData.append('pro_brand', this.formValue.get('pro_brand')?.value)
     formData.append('pro_category', this.formValue.get('pro_category')?.value)
     formData.append('pro_sgst', this.formValue.get('pro_sgst')?.value)
     formData.append('pro_cgst', this.formValue.get('pro_cgst')?.value)
     formData.append('pro_price', this.formValue.get('pro_price')?.value)
+    formData.append('pro_shippingcharge', this.formValue.get('pro_shippingcharge')?.value)
     formData.append('uid', this.formValue.get('uid')?.value)
     formData.append('pro_qty', this.formValue.get('pro_qty')?.value)
     formData.append('pro_color', this.pro_color)
@@ -154,11 +158,14 @@ export class ProductComponent implements OnInit {
     this.formValue.controls['pro_name'].setValue(row.pro_name)
     this.formValue.controls['pro_image'].setValue(row.pro_image)
     this.formValue.controls['pro_desc'].setValue(row.pro_desc)
+    this.formValue.controls['pro_adinfo'].setValue(row.pro_adinfo)
+    this.formValue.controls['pro_tag'].setValue(row.pro_tag)
     this.formValue.controls['pro_brand'].setValue(row.pro_brand)
     this.formValue.controls['pro_category'].setValue(row.pro_category)
     this.formValue.controls['pro_sgst'].setValue(row.pro_sgst)
     this.formValue.controls['pro_cgst'].setValue(row.pro_cgst)
     this.formValue.controls['pro_price'].setValue(row.pro_price)
+    this.formValue.controls['pro_shippingcharge'].setValue(row.pro_shippingcharge)
     this.formValue.controls['uid'].setValue(row.uid)
     this.formValue.controls['pro_qty'].setValue(row.pro_qty)
   }
@@ -174,11 +181,14 @@ export class ProductComponent implements OnInit {
     formData.append('pro_code', this.formValue.get('pro_code')?.value)
     formData.append('pro_name', this.formValue.get('pro_name')?.value)
     formData.append('pro_desc', this.formValue.get('pro_desc')?.value)
+    formData.append('pro_adinfo', this.formValue.get('pro_adinfo')?.value)
+    formData.append('pro_tag', this.formValue.get('pro_tag')?.value)
     formData.append('pro_brand', this.formValue.get('pro_brand')?.value)
     formData.append('pro_category', this.formValue.get('pro_category')?.value)
     formData.append('pro_sgst', this.formValue.get('pro_sgst')?.value)
     formData.append('pro_cgst', this.formValue.get('pro_cgst')?.value)
     formData.append('pro_price', this.formValue.get('pro_price')?.value)
+    formData.append('pro_shippingcharge', this.formValue.get('pro_shippingcharge')?.value)
     formData.append('uid', this.formValue.get('uid')?.value)
     formData.append('pro_qty', this.formValue.get('pro_qty')?.value)
     formData.append('pro_color', this.pro_color)

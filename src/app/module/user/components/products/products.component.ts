@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { map } from 'rxjs';
 import { SharedService } from 'src/app/shared-service.service';
 import {ProductModel} from './product.model'
 import { ProductsService } from './products.service';
@@ -25,6 +24,7 @@ export class ProductsComponent implements OnInit {
   categories:any
   filterproduct: any;
   count: any = 0
+  itemCategory:any 
 
   productObjModel: ProductModel = new ProductModel()
 
@@ -34,6 +34,7 @@ export class ProductsComponent implements OnInit {
       pro_name: [''],
       pro_price: [''],
       pro_qty: [''],
+      pro_shippingcharge: [''],
     })
   }
 
@@ -74,6 +75,7 @@ export class ProductsComponent implements OnInit {
     this.formvalue.controls['pro_name'].setValue(product.pro_name)
     this.formvalue.controls['pro_price'].setValue(product.pro_price)
     this.formvalue.controls['pro_qty'].setValue(product.pro_qty)
+    this.formvalue.controls['pro_shippingcharge'].setValue(product.pro_shippingcharge)
     console.log(this.formvalue.value)
     ++this.count;
 
@@ -88,9 +90,13 @@ export class ProductsComponent implements OnInit {
       id: product.id,
       pro_name: product.pro_name,
       pro_desc: product.pro_desc,
+      pro_adinfo: product.pro_adinfo,
       pro_image: product.pro_image,
       pro_category: product.pro_category,
+      pro_brand: product.pro_brand,
+      pro_tag: product.pro_tag,
       pro_price: product.pro_price,
+      pro_shippingcharge: product.pro_shippingcharge,
       pro_qty: product.pro_qty,
 
     }
