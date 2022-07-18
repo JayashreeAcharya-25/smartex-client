@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, Renderer2 } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { SharedService } from '../../../../shared-service.service';
 import Swal from 'sweetalert2';
@@ -12,6 +12,9 @@ import { ProductModel } from './product.model';
 export class ProductComponent implements OnInit {
 
   @ViewChild('ukclose') ukclose: any
+  @ViewChild('fileInput') fileInput: any
+  @ViewChild('input1')
+  el!: ElementRef;
 
   productObjModel: ProductModel = new ProductModel()
 
@@ -28,7 +31,7 @@ export class ProductComponent implements OnInit {
   pro_color: any = 1
   id: any
 
-  constructor(private api: SharedService, private formBuilder: FormBuilder) {
+  constructor(private api: SharedService, private renderer: Renderer2, private formBuilder: FormBuilder) {
     this.formValue = this.formBuilder.group({
       pro_slno: [''],
       pro_code: [''],
@@ -78,8 +81,11 @@ export class ProductComponent implements OnInit {
   }
 
   triggerFile() {
-    let ref = document.getElementById('fileInput')
-    ref?.click()
+
+    this.renderer.setStyle(this.el.nativeElement, 'display', 'none');
+    this.fileInput.nativeElement.click()
+    this.renderer.setStyle(this.fileInput.nativeElement, 'display', 'block');
+    
   }
 
   getProducts() {
@@ -119,10 +125,11 @@ export class ProductComponent implements OnInit {
       .subscribe(
         (response: any) => {
 
-          // Swal.fire({
-          //   icon: 'success',
-          //   title: response.message,
-          // });
+          Swal.fire({
+            icon: 'success',
+            title: '<h3 style="font-size: 18px; font-family: Joan, serif; font-weight: 500 ">'+response.message+'</h3>',
+            confirmButtonColor: '#7a0459',
+          });
           
           this.getProducts()
           this.ukclose.nativeElement.click()
@@ -175,19 +182,23 @@ export class ProductComponent implements OnInit {
     formData.append('uid', this.formValue.get('uid')?.value)
     formData.append('pro_qty', this.formValue.get('pro_qty')?.value)
     formData.append('pro_color', this.pro_color)
-    formData.append('pro_image', this.formValue.get('pro_image')?.value)
+    formData.append('pro_image', this.selectedFile)
 
     this.api
       .updateProduct(formData)
       .subscribe(
         (response: any) => {
-          // Swal.fire({
-          //   icon: 'success',
-          //   title: response.message,
-          // });
-          console.log(response)
+
+          Swal.fire({
+            icon: 'success',
+            title: '<h3 style="font-size: 18px; font-family: Joan, serif; font-weight: 500 ">'+response.message+'</h3>',
+            confirmButtonColor: '#7a0459',
+          });
+
+          console.log(response.data)
+          this.getProducts();
           // window.setTimeout(function(){location.reload()}, 1000)
-          // this.ukclose.nativeElement.click()
+          this.ukclose.nativeElement.click()
 
         },
         error =>

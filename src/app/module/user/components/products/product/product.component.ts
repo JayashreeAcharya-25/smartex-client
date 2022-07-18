@@ -13,7 +13,6 @@ export class ProductComponent implements OnInit {
 
   selectedProducts: any = [];
   stocks: any = []
-  stock_qty: any
 
   constructor(private _service: ProductsService, private _product_service: ProductService, private api: SharedService, private route: ActivatedRoute, private router: Router) { 
     // this.router.routeReuseStrategy.shouldReuseRoute = () => false;

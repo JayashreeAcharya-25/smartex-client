@@ -5,25 +5,29 @@
     </div>
     <div class="section">
       <div class="row">
+        
         <h1>{{item.pro_name}}</h1>
+        <ng-container *ngFor="let stk of stocks;">
+          <span>Availability: ({{stk.stk_status}})</span>
+        </ng-container>
         <div class="row-container uk-divider">
           <div class="row-section">
-            <h3>Price:</h3>
-            <p>&#8377; {{item.pro_price}}</p>
+            <!-- <h3>Price:</h3> -->
+            <p class="ptag-bold">&#8377; {{item.pro_price}}</p>
           </div>
-          <div class="row-section">
+          <!-- <div class="row-section">
             <span>In stock :</span>
             <ng-container *ngFor="let stk of stocks;">
               <span>{{stk.stk_qty - item.pro_qty}}</span>
             </ng-container>
-          </div>
+          </div> -->
         </div>
         <div class="row-container uk-divider">
           <p>{{item.pro_desc}}</p>
         </div>
         <div class="row-container uk-divider">
           <div class="row-section">
-            <h3>Qty:</h3>
+            <!-- <h3>Qty:</h3> -->
             <div class="column-section">
               <a (click)="increment_qty(item)">
                 <svg
@@ -52,12 +56,12 @@
             </div>
           </div>
           <div class="row-section">
-            <button class="cart" (click)="addToBasket();">Add to Basket</button>
+            <button class="cart" (click)="addToBasket();">Order Now</button>
           </div>
         </div>
         <div class="row-container display-block">
           <div class="row-section">
-            <h3>Categories:</h3>
+            <h3>Category:</h3>
             <p>Category1, Category2, Category3</p>
           </div>
           <div class="row-section">

@@ -53,6 +53,30 @@
 /* .product .row .container:nth-child(1) .section .uk-margin{
     width: 100%;
 } */
+.product .row .container:nth-child(1) .section ul{
+    margin: 0 20px;
+}
+.product .row .container:nth-child(1) .section li{
+    border: 1px solid #e5e5e5;
+    padding: 10px 12px;
+}
+
+.product .row .container:nth-child(1) .section li a{
+    font-size: 14px;
+    text-align: left;
+    font-family: 'Jost', sans-serif;
+    color: #999;
+}
+
+.product .row .container:nth-child(1) .section li .accordian-title{
+    text-align: left !important;
+    font-size: 14px;
+    margin: 6px 0;
+    font-family: 'Cormorant Garamond',
+    serif;
+    color: #222;
+    font-weight: 600;
+}
 
 .product .row .container:nth-child(1) .section .uk-form-custom,
 .product .row .container:nth-child(1) .section .uk-button{

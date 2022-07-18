@@ -92,15 +92,16 @@
                 <div>
                   <label class="uk-form-label">Upload Image</label>
                   <div class="uk-form-controls">
-                    <!-- <input class="uk-input" type="text"  formControlName="pro_image" (click)="triggerFile()"> -->
+                    <input  #input1 class="uk-input" type="text"  formControlName="pro_image" (click)="triggerFile()">
                     <input
                       class="uk-input"
                       #fileInput
                       formControlName="pro_image"
                       type="file"
                       placeholder="Upload Image"
-                      accept="*png,jpg"
+                      accept="image/*" 
                       (change)="uploadFile($event)"
+                      style="display: none;"
                     />
                   </div>
                 </div>

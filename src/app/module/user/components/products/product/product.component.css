@@ -1,8 +1,12 @@
 .product-section{
     padding: 100px 100px;
+    /* background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
+      url('../../../../../../assets/Bg1.jpg') no-repeat;
+    background-size: cover; */
 }
 .product-section .container-1{
     display: flex;
+    
 }
 .product-section .section:nth-child(1){
     width: 40%;
@@ -28,11 +32,18 @@
 .product-section .section:nth-child(2) .row h1{
     font-family: 'Cormorant Garamond',
     serif;
-    font-size: 50px;
+    font-size: 45px;
     font-weight: 900;
     text-transform: capitalize;
-    color: #7a0459;
-    margin-bottom: 25px;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.product-section .section:nth-child(2) .row span{
+    color: #7e7e7e;
+    font-size: 13px;
+    font-weight: 600;
+    
 }
 
 .product-section .section:nth-child(2) .row  p{
@@ -40,6 +51,14 @@
     color: #7e7e7e;
     font-size: 15px;
     margin: auto 0;
+}
+
+.product-section .section:nth-child(2) .row .ptag-bold{
+    color: #7a0459;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Cormorant Garamond',
+    serif;
 }
 
 .product-section .section:nth-child(2) .row-container{
@@ -109,12 +128,12 @@
     width: 50%;
 }
 .product-section .section:nth-child(2) .row-container .row-section  .cart{
-    padding: 8px 25px;
+    padding: 10px 25px;
     border: none;
     font-size: 13px;
     font-family: 'Joan', serif;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 20px;
     background: #7a0459;
     color: #ebebeb;
     text-decoration: none;

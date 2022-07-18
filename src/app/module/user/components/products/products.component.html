@@ -37,6 +37,31 @@
                 <hr />
                 <div class="section">
 
+                    <!-- <ul uk-accordion>
+                        
+                        <li>
+                            <a class="uk-accordion-title" href="#">Item 1</a>
+                            <div class="uk-accordion-content">
+                               <div class="content" *ngFor="let brand of brands">
+                                <label><input class="uk-checkbox"  type="checkbox" [(ngModel)]="selectedBrand" (ngModelChange)="filterByDropdown()" name={{brand.id}} value={{brand.id}}> {{brand.brand_name}}</label>
+                                
+                            </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="uk-accordion-title" href="#">Item 2</a>
+                            <div class="uk-accordion-content">
+                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="uk-accordion-title" href="#">Item 3</a>
+                            <div class="uk-accordion-content">
+                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
+                            </div>
+                        </li>
+                    </ul> -->
+
                     <div class="uk-margin">
                         <div uk-form-custom="target: > * > span:first-child">
                             <select [(ngModel)]="selectedBrand" (change)="filterByDropdown()" >

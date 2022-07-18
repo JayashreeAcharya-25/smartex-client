@@ -84,6 +84,7 @@ export class StockComponent implements OnInit {
               title: '<h3 style="font-size: 18px; font-family: Joan, serif; font-weight: 500 ">'+response.message+'</h3>',
               confirmButtonColor: '#7a0459',
             });
+
             console.log(response);
 
             this.getStocks()
@@ -116,10 +117,13 @@ export class StockComponent implements OnInit {
       .updateStock(this.formValue.value)
       .subscribe(
         (response: any) => {
+
           Swal.fire({
             icon: 'success',
             title: '<h3 style="font-size: 18px; font-family: Joan, serif; font-weight: 500 ">'+response.message+'</h3>',
+            confirmButtonColor: '#7a0459',
           });
+
           console.log(response.data)
           // window.setTimeout(function(){location.reload()}, 1000)
           this.getStocks()
@@ -137,6 +141,7 @@ export class StockComponent implements OnInit {
     this.api
       .deleteStock(id)
       .subscribe((response: any) => {
+
         Swal.fire({
           icon: 'success',
           title: '<h3 style="font-size: 18px; font-family: Joan, serif; font-weight: 500 ">'+response.message+'</h3>',

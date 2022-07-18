@@ -69,8 +69,10 @@ export class CategoryComponent implements OnInit {
 
           Swal.fire({
             icon: 'success',
-            title: response.message,
+            title: '<h3 style="font-size: 18px; font-family: Joan, serif; font-weight: 500 ">'+response.message+'</h3>',
+            confirmButtonColor: '#7a0459',
           });
+
           this.getCategories()
           this.ukclose.nativeElement.click()
         },
@@ -98,13 +100,17 @@ export class CategoryComponent implements OnInit {
       .updateCategory(this.formValue.value)
       .subscribe(
         (response: any) => {
-          // Swal.fire({
-          //   icon: 'success',
-          //   title: response.message,
-          // });
+
+          Swal.fire({
+              icon: 'success',
+              title: '<h3 style="font-size: 18px; font-family: Joan, serif; font-weight: 500 ">'+response.message+'</h3>',
+              confirmButtonColor: '#7a0459',
+            });
+
           console.log(response)
           // window.setTimeout(function(){location.reload()}, 1000)
-          // this.ukclose.nativeElement.click()
+          this.getCategories()
+          this.ukclose.nativeElement.click()
 
         },
         error =>

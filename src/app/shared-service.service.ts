@@ -58,7 +58,7 @@ export class SharedService {
 
   updateBrand(val: any) {
     return this.http
-      .put(this.APIUrl + this.brand + '/updatebrand', val)
+      .patch(this.APIUrl + this.brand + '/updatebrand', val)
   }
 
   deleteBrand(id: any){
@@ -80,7 +80,7 @@ export class SharedService {
 
   updateCategory(val: any){
     return this.http
-      .put(this.APIUrl + this.category + '/updatecategory', val)
+      .patch(this.APIUrl + this.category + '/updatecategory', val)
   }
 
   deleteCategory(id: any){
@@ -102,7 +102,7 @@ export class SharedService {
 
   updateProduct(val: any){
     return this.http
-      .put(this.APIUrl + this.product + `/updateproduct`, val)
+      .patch(this.APIUrl + this.product + `/updateproduct`, val)
   }
 
   deleteProduct(id: any){
@@ -124,7 +124,7 @@ export class SharedService {
 
   updateStock(val: any){
     return this.http
-      .put(this.APIUrl + this.stock + '/updatestock', val)
+      .patch(this.APIUrl + this.stock + '/updatestock', val)
   }
 
   deleteStock(id: any){

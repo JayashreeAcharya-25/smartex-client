@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, Renderer2 } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { SharedService } from 'src/app/shared-service.service';
 import Swal from 'sweetalert2';
@@ -14,6 +14,8 @@ export class BrandComponent implements OnInit {
 
   @ViewChild('ukclose') ukclose: any
   @ViewChild('fileInput') fileInput: any
+  @ViewChild('input1')
+  el!: ElementRef;
 
   brandObjModel: BrandModel = new BrandModel()
 
@@ -27,7 +29,7 @@ export class BrandComponent implements OnInit {
 
   id: any
 
-  constructor( private api: SharedService, private formBuilder: FormBuilder) {
+  constructor( private api: SharedService, private renderer: Renderer2, private formBuilder: FormBuilder) {
     this.formValue = this.formBuilder.group({
       brand_slno: [''],
       brand_name: [''],
@@ -52,10 +54,14 @@ export class BrandComponent implements OnInit {
     console.log(this.selectedFile)
   }
 
+  
+
   triggerFile() {
-    // let ref = document.getElementById('fileInput')
-    // ref?.click()
+    
+    this.renderer.setStyle(this.el.nativeElement, 'display', 'none');
     this.fileInput.nativeElement.click()
+    this.renderer.setStyle(this.fileInput.nativeElement, 'display', 'block');
+    
   }
 
   getBrands() {
@@ -89,6 +95,7 @@ export class BrandComponent implements OnInit {
               title: '<h3 style="font-size: 18px; font-family: Joan, serif; font-weight: 500 ">'+response.message+'</h3>',
               confirmButtonColor: '#7a0459',
             });
+
             console.log(response);
 
             this.getBrands()
@@ -120,6 +127,7 @@ export class BrandComponent implements OnInit {
 
     const formData = new FormData();
 
+    formData.append('id', this.id)
     formData.append('brand_slno', this.formValue.get('brand_slno')?.value);
     formData.append('brand_name', this.formValue.get('brand_name')?.value);
     formData.append('brand_image', this.selectedFile)
@@ -128,10 +136,13 @@ export class BrandComponent implements OnInit {
       .updateBrand(formData)
       .subscribe(
         (response: any) => {
+
           Swal.fire({
             icon: 'success',
             title: '<h3 style="font-size: 18px; font-family: Joan, serif; font-weight: 500 ">'+response.message+'</h3>',
+            confirmButtonColor: '#7a0459',
           });
+
           console.log(response.data)
           // window.setTimeout(function(){location.reload()}, 1000)
           this.getBrands()
@@ -149,6 +160,7 @@ export class BrandComponent implements OnInit {
     this.api
       .deleteBrand(id)
       .subscribe((response: any) => {
+        
         Swal.fire({
           icon: 'success',
           title: '<h3 style="font-size: 18px; font-family: Joan, serif; font-weight: 500 ">'+response.message+'</h3>',
