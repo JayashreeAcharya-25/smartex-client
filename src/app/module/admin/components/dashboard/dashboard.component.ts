@@ -14,18 +14,6 @@ export class DashboardComponent implements OnInit {
   constructor(private api: SharedService) { }
 
   ngOnInit(): void {
-
-    // this.api
-    //   .user()
-    //   .subscribe(
-    //     response => {
-    //       this.res_msg = response
-    //       this.res_data = this.res_msg.data
-    //       console.log(response)
-    //   }, error =>{
-    //     console.log(error)
-    //   })
-
   }
 
   logout(){

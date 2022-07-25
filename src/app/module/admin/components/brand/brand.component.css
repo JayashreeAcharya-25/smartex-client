@@ -152,6 +152,11 @@
     justify-content: space-between;
 }
 
+.modal .uk-margin{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .modal .uk-modal-header .uk-modal-close-default{
     position: initial;
 }

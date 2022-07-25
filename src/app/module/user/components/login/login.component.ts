@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/shared-service.service';
 import Swal from 'sweetalert2';
+import { LoginModel } from './login.model';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,9 @@ export class LoginComponent implements OnInit {
   message: any;
   userData: any = []
 
-  constructor(private formBuilder: FormBuilder, private api: SharedService, private router: Router) {
+  // loginObjModel: LoginModel = new LoginModel()
+
+  constructor(private formBuilder: FormBuilder, private _service:LoginService, private api: SharedService, private router: Router) {
     this.formValue = this.formBuilder.group({
       email: [''],
       password: [''],
@@ -33,6 +37,13 @@ export class LoginComponent implements OnInit {
       .subscribe((items: any) => {
 
         this.userData = items;
+        console.log(items)
+
+        // this.loginObjModel.id = items.data.id
+
+        // const data = {
+        //   id: 
+        // }
 
         Swal.fire({
           title: 'Success',
@@ -42,6 +53,7 @@ export class LoginComponent implements OnInit {
         });
 
         window.localStorage.setItem('token', items.jwt)
+        // this._service.sendUserData(this.userData.data)
         this.router.navigate(['/admin/home'])
       },
         error => {

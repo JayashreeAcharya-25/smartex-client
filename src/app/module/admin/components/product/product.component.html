@@ -4,7 +4,8 @@
     <div class="container">
       <div class="admin-header">
         <h3>List Of Products</h3>
-        <a href="#modal-container" uk-icon="icon: plus" uk-toggle (click)="onClickAddBtn()"></a>
+        <a href="#modal-container" uk-icon="icon: plus" uk-toggle
+          (click)="onClickAddBtn()"></a>
       </div>
       <div class="admin-body">
         <table class="uk-table uk-table-small uk-table-divider">
@@ -12,41 +13,44 @@
             <tr>
               <th>Sl.No</th>
               <th>Image</th>
-              <th>Code</th>
               <th>Name</th>
               <th>Description</th>
               <th>Brand</th>
               <th>Category</th>
               <th>Price</th>
-              <th>Qty</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let res of products">
               <td>{{res.pro_slno}}</td>
-              <td><img class="table-img" src='http://127.0.0.1:8000/{{res.pro_image}}'/></td>
-              <td>{{res.pro_code}}</td>
+              <td><img class="table-img" src='http://127.0.0.1:8000/{{res.pro_image}}'/>
+              </td>
               <td>{{res.pro_name}}</td>
               <td>{{res.pro_desc}}</td>
               <td>{{res.pro_brand}}</td>
               <td>{{res.pro_category}}</td>
               <td>{{res.pro_price}}</td>
-              <td>{{res.pro_qty}}</td>
+
               <td>
-                <button type="submit" uk-icon="icon: trash" (click)="deleteProducts(res.id)"></button> &nbsp; &nbsp;
-                <button type="button" uk-icon="icon: pencil" uk-toggle="target: #modal-container" (click)="editProduct(res)"></button>
+                <button type="submit" uk-icon="icon: trash"
+                  (click)="deleteProducts(res.id)"></button> &nbsp; &nbsp;
+                <button type="button" uk-icon="icon: pencil" uk-toggle="target:
+                  #modal-container" (click)="editProduct(res)"></button>
               </td>
-          </tr>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <div id="modal-container" #ukmodal class="uk-modal-container modal" uk-modal>
+    <div id="modal-container" #ukmodal class="uk-modal-container modal"
+      uk-modal>
       <div class="uk-modal-dialog uk-modal-body">
         <div class="uk-modal-header">
-          <h3 class="uk-modal-title">{{show_add_btn ? "Add Product" : "Update Product"}}</h3>
-          <button #ukclose class="uk-modal-close-default" type="button" uk-close></button>
+          <h3 class="uk-modal-title">{{show_add_btn ? "Add Product" : "Update
+            Product"}}</h3>
+          <button #ukclose class="uk-modal-close-default" type="button"
+            uk-close></button>
         </div>
         <div class="uk-modal-body">
           <form [formGroup]="formValue">
@@ -59,7 +63,7 @@
                     formControlName="pro_slno"
                     type="text"
                     placeholder="Enter Sl. No"
-                  />
+                    />
                 </div>
               </div>
               <div>
@@ -70,81 +74,82 @@
                     formControlName="pro_code"
                     type="text"
                     placeholder="Enter Product Code"
-                  />
+                    />
                 </div>
               </div>
               <div>
-                <label class="uk-form-label" >Name</label>
+                <label class="uk-form-label">Name</label>
                 <div class="uk-form-controls">
                   <input
                     class="uk-input"
                     formControlName="pro_name"
                     type="text"
                     placeholder="Enter Product Name"
-                  />
+                    />
                 </div>
               </div>
             </div>
-            
-            <div class="uk-margin modal-grid-3"> 
+
+            <div class="uk-margin modal-grid-3">
               <div class="uk-margin">
-                <label class="uk-form-label" >Description</label>
+                <label class="uk-form-label">Description</label>
                 <div class="uk-form-controls">
                   <input
                     class="uk-input"
                     formControlName="pro_desc"
                     type="text"
                     placeholder="Enter Product Description"
-                  />
+                    />
                 </div>
               </div>
               <div class="uk-margin">
-                <label class="uk-form-label" >Additional Information</label>
+                <label class="uk-form-label">Additional Information</label>
                 <div class="uk-form-controls">
                   <input
                     class="uk-input"
                     formControlName="pro_adinfo"
                     type="text"
                     placeholder="Enter Additional Information"
-                  />
+                    />
                 </div>
               </div>
               <div class="uk-margin">
-                <label class="uk-form-label" >Tags</label>
+                <label class="uk-form-label">Tags</label>
                 <div class="uk-form-controls">
                   <input
                     class="uk-input"
                     formControlName="pro_tag"
                     type="text"
                     placeholder="Enter Tags"
-                  />
+                    />
                 </div>
               </div>
             </div>
 
             <div class="uk-margin modal-grid-2">
               <div>
-                <label class="uk-form-label">Brand</label>
+                <label class="uk-form-label" for="form-horizontal-text">Brand</label>
                 <div class="uk-form-controls">
-                    <select class="uk-select" formControlName="pro_brand">
-                        <option>Select Brands</option>
-                        
-                        <option *ngFor="let brand of brands" value={{brand.id}}>{{brand.brand_name}}</option>
-                        
-                    </select>
+                  <select class="uk-select" id="form-horizontal-select"
+                    formControlName="pro_brand">
+                    <option>Select Brands</option>
+                    <option *ngFor="let brand of brands" value={{brand.id}}>{{brand.brand_name}}</option>
+                  </select>
                 </div>
               </div>
               <div>
                 <label class="uk-form-label" for="form-horizontal-text">Category</label>
                 <div class="uk-form-controls">
-                    <select class="uk-select" id="form-horizontal-select" formControlName="pro_category" >
-                        <option>Select Category</option>
-                        <option *ngFor="let category of categories" value={{category.id}}>{{category.cat_name}}</option>
-                    </select>
+                  <select class="uk-select" id="form-horizontal-select"
+                    formControlName="pro_category">
+                    <option>Select Category</option>
+                    <option *ngFor="let category of categories"
+                      value={{category.id}}>{{category.cat_name}}</option>
+                  </select>
                 </div>
               </div>
             </div>
-            
+
             <!-- <div class="uk-margin">
               <label class="uk-form-label" for="form-horizontal-text">Color</label>
               <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
@@ -157,7 +162,7 @@
               <div>
                 <label class="uk-form-label">SGST</label>
                 <div class="uk-form-controls">
-                    <input
+                  <input
                     class="uk-input"
                     formControlName="pro_sgst"
                     type="text"
@@ -173,18 +178,18 @@
                     formControlName="pro_cgst"
                     type="text"
                     placeholder="Enter CGST"
-                  />
+                    />
                 </div>
               </div>
               <div>
-                <label class="uk-form-label" >Price</label>
+                <label class="uk-form-label">Price</label>
                 <div class="uk-form-controls">
                   <input
                     class="uk-input"
                     formControlName="pro_price"
                     type="text"
                     placeholder="Enter Price"
-                  />
+                    />
                 </div>
               </div>
             </div>
@@ -193,7 +198,7 @@
               <div>
                 <label class="uk-form-label">Shipping Charges</label>
                 <div class="uk-form-controls">
-                    <input
+                  <input
                     class="uk-input"
                     formControlName="pro_shippingcharge"
                     type="text"
@@ -212,7 +217,7 @@
                     formControlName="uid"
                     type="text"
                     placeholder="Enter User Id"
-                  />
+                    />
                 </div>
               </div>
               <div>
@@ -223,11 +228,11 @@
                     formControlName="pro_qty"
                     type="text"
                     placeholder="Enter Quantity"
-                  />
+                    />
                 </div>
               </div>
               <div>
-                <div>
+                <!-- <div>
                   <label class="uk-form-label">Upload Image</label>
                   <div class="uk-form-controls">
                     <input  #input1 class="uk-input" type="text"  formControlName="pro_image" (click)="triggerFile()">
@@ -242,17 +247,19 @@
                       style="display: none;"
                     />
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
-            
+
 
             <div class="uk-modal-footer uk-text-right">
-              
-              <button *ngIf="show_add_btn" class="uk-button uk-button-primary" type="submit" (click)="addProducts()">
+
+              <button *ngIf="show_add_btn" class="uk-button uk-button-primary"
+                type="submit" (click)="addProducts()">
                 Create
               </button>
-              <button *ngIf="show_update_btn" class="uk-button uk-button-primary" type="submit" (click)="updateProducts()">
+              <button *ngIf="show_update_btn" class="uk-button
+                uk-button-primary" type="submit" (click)="updateProducts()">
                 Update
               </button>
             </div>

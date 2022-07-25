@@ -16,8 +16,8 @@ export class SharedService {
     return _window()
   }
 
-  APIUrl = "https://smxapp-server.herokuapp.com/v1"
-  // APIUrl = "http://127.0.0.1:8000/v1"
+  // APIUrl = "https://smxapp-server.herokuapp.com/v1"
+  APIUrl = "http://127.0.0.1:8000/v1"
   product = '/product'
   brand = '/brand'
   category = '/category'

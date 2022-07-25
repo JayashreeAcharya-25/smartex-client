@@ -24,7 +24,7 @@ export class CartComponent implements OnInit {
   cgst: number = 2 / 100;
   shippingcharges: any
   netPrice: number = 0;
-    rzp1:any
+  rzp1:any
 
   constructor(private _service: ProductsService, private _product_service: ProductService, private api:SharedService) {
 

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { LoginService } from 'src/app/module/user/components/login/login.service';
 import { SharedService } from 'src/app/shared-service.service';
 
 @Component({
@@ -11,23 +12,23 @@ export class HomeComponent implements OnInit {
   @Input()
   userData: any[] = [];
 
-  // res_msg: any
-  // res_data: any
+  user: any
 
-  constructor(private api: SharedService) { }
+  constructor(private api: SharedService, private _service: LoginService) { }
 
   ngOnInit(): void {
-    // this.api
-    //   .user()
-    //   .subscribe(
-    //     response => {
-    //       this.res_msg = response
-    //       this.res_data = this.res_msg.data
-    //       console.log(this.res_msg.data)
-    //   }, error =>{
-    //     console.log(error)
-    //   })
+    this.api
+      .user()
+      .subscribe(
+        (response: any) => {
+          
+          console.log(response.data)
+      }, error =>{
+        console.log(error)
+      })
 
+    this.user =  this._service.retrievePassedObject()
+    console.log(this.user)
   }
 
 }

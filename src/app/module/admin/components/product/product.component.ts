@@ -39,11 +39,13 @@ export class ProductComponent implements OnInit {
       pro_image: null,
       pro_desc: [''],
       pro_adinfo: [''],
+      pro_tag: [''],
       pro_brand: [''],
       pro_category: [''],
       pro_sgst: [''],
       pro_cgst: [''],
       pro_price: [''],
+      pro_shippingcharge: [''],
       pro_qty: [''],
       uid: 1,
     })
@@ -156,7 +158,7 @@ export class ProductComponent implements OnInit {
     this.formValue.controls['pro_slno'].setValue(row.pro_slno)
     this.formValue.controls['pro_code'].setValue(row.pro_code)
     this.formValue.controls['pro_name'].setValue(row.pro_name)
-    this.formValue.controls['pro_image'].setValue(row.pro_image)
+    
     this.formValue.controls['pro_desc'].setValue(row.pro_desc)
     this.formValue.controls['pro_adinfo'].setValue(row.pro_adinfo)
     this.formValue.controls['pro_tag'].setValue(row.pro_tag)
@@ -168,6 +170,9 @@ export class ProductComponent implements OnInit {
     this.formValue.controls['pro_shippingcharge'].setValue(row.pro_shippingcharge)
     this.formValue.controls['uid'].setValue(row.uid)
     this.formValue.controls['pro_qty'].setValue(row.pro_qty)
+    this.formValue.controls['pro_image'].setValue(row.pro_image)
+
+    console.log(this.formValue.value)
   }
 
   updateProducts() {
