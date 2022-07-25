@@ -13,10 +13,7 @@ export class SignupComponent implements OnInit {
 
   formValue!: FormGroup
 
-  res_message: any;
-  message: any;
-
-  constructor(private formBuilder: FormBuilder, private api: SharedService, private router: Router) { 
+  constructor(private formBuilder: FormBuilder, private api: SharedService, private router: Router) {
     this.formValue = this.formBuilder.group({
       username: [''],
       email: [''],
@@ -28,29 +25,25 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signup(){
-    console.log(this.formValue.value)
+  signup() {
+
     this.api
-    .signUp(this.formValue.value)
-    
-    .subscribe(
-      response=>{
-        
-        this.res_message = response
-            this.message = this.res_message.message
-            Swal.fire({
-              title: 'Success',
-              text: this.message,
-              icon: 'success',
-              confirmButtonText: 'Ok'
-            });
-            console.log(response);
-            this.router.navigate(['login'])
-      },
-      error =>{
-        console.log(error);
-      }
-    )
+      .signUp(this.formValue.value)
+      .subscribe(
+        (response: any) => {
+
+          Swal.fire({
+            text: response.message,
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          });
+          console.log(response);
+          this.router.navigate(['login'])
+        },
+        error => {
+          console.log(error);
+        }
+      )
   }
 
 }

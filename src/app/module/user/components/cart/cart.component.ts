@@ -24,11 +24,12 @@ export class CartComponent implements OnInit {
   cgst: number = 2 / 100;
   shippingcharges: any
   netPrice: number = 0;
+    rzp1:any
 
   constructor(private _service: ProductsService, private _product_service: ProductService, private api:SharedService) {
 
   }
-
+  
   options = {
     "key": environment.razorpay, // Enter the Key ID generated from the Dashboard
     "amount": "2", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
@@ -39,12 +40,12 @@ export class CartComponent implements OnInit {
     "order_id": "", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
     "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
     "prefill": {
-      "name": "Gaurav Kumar",
-      "email": "gaurav.kumar@example.com",
-      "contact": "9999999999"
+      "name": "Jayashree",
+      "email": "jayaacharya1997@gmail.com",
+      "contact": "9741568375"
     },
     "notes": {
-      "address": "Razorpay Corporate Office"
+      "address": "Corporate Office"
     },
     "theme": {
       "color": "#3399cc"
@@ -110,9 +111,6 @@ export class CartComponent implements OnInit {
     this.netPrice = this.total + this.cgst + this.sgst + this.shippingcharges
   }
 
-
-
-  rzp1:any
   pay() {
     this.rzp1 = new this.api.nativeWindow.Razorpay(this.options);
     this.rzp1.open()

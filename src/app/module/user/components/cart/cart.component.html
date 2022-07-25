@@ -104,7 +104,7 @@
                 </div>
                 <div class="section">
                     <div class="section-container">
-                        <button (click)="pay" *ngIf="selectedProducts.length">Proceed to Checkout</button>
+                        <button (click)="pay()" *ngIf="selectedProducts.length">Proceed to Checkout</button>
                         <button class="disable-btn" *ngIf="selectedProducts.length===0" disabled="true">Proceed to Checkout</button>
                     </div>
                 </div>
