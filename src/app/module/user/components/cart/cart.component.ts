@@ -34,7 +34,7 @@ export class CartComponent implements OnInit {
     "key": environment.razorpay, // Enter the Key ID generated from the Dashboard
     "amount": "100", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
     "currency": "INR",
-    "name": "Acme Corp",
+    "name": "Test Corp",
     "description": "Test Transaction",
     "image": "https://example.com/your_logo",
     "order_id": "", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
@@ -48,7 +48,7 @@ export class CartComponent implements OnInit {
       "address": "Corporate Office"
     },
     "theme": {
-      "color": "#3399cc"
+      "color": "#7a0459"
     }
   };
 
