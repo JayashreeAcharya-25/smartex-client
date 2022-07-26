@@ -12,16 +12,16 @@ function _window(): any {
 
 export class SharedService {
 
-  get nativeWindow(): any{
-    return _window()
-  }
-
   // APIUrl = "https://smxapp-server.herokuapp.com/v1"
   APIUrl = "http://127.0.0.1:8000/v1"
   product = '/product'
   brand = '/brand'
   category = '/category'
   stock = '/stock'
+
+  get nativeWindow(): any{
+    return _window()
+  }
 
   constructor(private http: HttpClient) { }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedService } from 'src/app/shared-service.service';
+import { SharedService } from 'src/app/service/shared-service.service';
 import { environment } from 'src/environments/environment';
 import { ProductService } from '../products/product/product.service';
 import { ProductsService } from '../products/products.service';

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SharedService } from 'src/app/shared-service.service';
+import { SharedService } from 'src/app/service/shared-service.service';
 import {ProductModel} from './product.model'
 import { ProductsService } from './products.service';
 

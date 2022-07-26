@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { LoginService } from 'src/app/module/user/components/login/login.service';
-import { SharedService } from 'src/app/shared-service.service';
+import { SharedService } from 'src/app/service/shared-service.service';
 
 @Component({
   selector: 'app-home',
@@ -14,21 +13,20 @@ export class HomeComponent implements OnInit {
 
   user: any
 
-  constructor(private api: SharedService, private _service: LoginService) { }
+  constructor(private api: SharedService) { }
 
   ngOnInit(): void {
-    this.api
-      .user()
-      .subscribe(
-        (response: any) => {
-          
-          console.log(response.data)
-      }, error =>{
-        console.log(error)
-      })
-
-    this.user =  this._service.retrievePassedObject()
-    console.log(this.user)
+    
+    this.user = localStorage.getItem('user');
+    this.userData = JSON.parse(this.user)
+    console.log(this.userData)
+    
+    // if(this.user){
+    //   try{
+    //     this.userData = JSON.parse(this.user)
+    //     console.log(this.userData)
+    //   } catch(e) {}
+    // } 
   }
 
 }

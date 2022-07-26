@@ -1,6 +1,6 @@
 import { Component, OnInit,OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SharedService } from 'src/app/shared-service.service';
+import { SharedService } from 'src/app/service/shared-service.service';
 import { ProductsService } from '../products.service';
 import { ProductService } from './product.service';
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedService } from 'src/app/shared-service.service';
+import { SharedService } from 'src/app/service/shared-service.service';
 
 @Component({
   selector: 'app-dashboard',

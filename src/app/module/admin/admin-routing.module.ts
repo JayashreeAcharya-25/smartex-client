@@ -7,7 +7,7 @@ import { BrandComponent } from './components/brand/brand.component';
 import { CategoryComponent } from './components/category/category.component';
 import { ProductComponent } from './components/product/product.component';
 import { StockComponent } from './components/stock/stock.component';
-
+import { AuthGuard } from 'src/app/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       { path:'', redirectTo: '/admin/home', pathMatch:'full'},
-      { path:'home', component: HomeComponent},
+      { path:'home', component: HomeComponent, canActivate: [AuthGuard]},
       { path:'brand', component: BrandComponent},
       { path:'category', component: CategoryComponent},
       { path:'product', component: ProductComponent},

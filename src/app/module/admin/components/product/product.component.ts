@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild, Renderer2 } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { SharedService } from '../../../../shared-service.service';
+import { SharedService } from '../../../../service/shared-service.service';
 import Swal from 'sweetalert2';
 import { ProductModel } from './product.model';
 
